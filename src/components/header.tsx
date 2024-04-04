@@ -12,7 +12,15 @@ import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
 export default function Header() {
-  const links = ["About", "Services", "Projects", "Blog"];
+  const links = [
+    {
+      label: "About",
+      url: "#about",
+    },
+    { label: "Services", url: "" },
+    { label: "Projects", url: "" },
+    { label: "Task", url: "#task" },
+  ];
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -55,12 +63,12 @@ export default function Header() {
               <ul className="flex items-center gap-6 text-sm">
                 {links.map((link, index) => (
                   <li key={index}>
-                    <a
+                    <Link
                       className="font-medium text-base -tracking-wide text-neutral-500 transition hover:text-indigo-500 ease-in-out duration-300"
-                      href="#"
+                      href={link.url}
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
