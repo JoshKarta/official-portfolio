@@ -63,12 +63,9 @@ export default function Header() {
               <ul className="flex items-center gap-6 text-sm">
                 {links.map((link, index) => (
                   <li key={index}>
-                    <Link
-                      className="font-medium text-base -tracking-wide text-neutral-500 transition hover:text-indigo-500 ease-in-out duration-300"
-                      href={link.url}
-                    >
+                    <button className="font-medium text-base -tracking-wide text-neutral-500 transition hover:text-indigo-500 ease-in-out duration-300">
                       {link.label}
-                    </Link>
+                    </button>
                   </li>
                 ))}
               </ul>
