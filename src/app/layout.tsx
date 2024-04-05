@@ -26,7 +26,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </ConvexClientProvider>
-        <Toaster richColors position="top-left" />
+        <Toaster richColors position="top-right" />
       </body>
     </html>
   );

@@ -38,7 +38,7 @@ export default function Header() {
 
   return (
     <header
-      className={`backdrop-blur-sm fixed top-0 w-full ${isScrolled ? "border-b" : ""}`}
+      className={`backdrop-blur-sm fixed top-0 w-full z-50 ${isScrolled ? "border-b" : ""}`}
     >
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">

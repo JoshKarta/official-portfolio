@@ -18,7 +18,7 @@ import { useMutation } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { toast } from "sonner";
 
-export default function TaskForm() {
+export default function SubscribeForm() {
   const createSubscription = useMutation(api.subscriptions.createSubscription);
 
   const formSchema = z.object({
@@ -38,6 +38,7 @@ export default function TaskForm() {
     try {
       createSubscription({ email: values.email });
       toast.success("Check your email for updates");
+      form.reset();
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
