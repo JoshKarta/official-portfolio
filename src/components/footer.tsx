@@ -11,10 +11,12 @@ export default function Footer() {
     { label: "Task", url: "#task" },
   ];
 
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer className="bg-gray-100">
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="flex justify-center text-indigo-600">
+        <div className="flex justify-center items-center gap-2 text-indigo-600">
           <svg
             className="h-8"
             viewBox="0 0 118 24"
@@ -62,6 +64,7 @@ export default function Footer() {
               fill="currentColor"
             />
           </svg>
+          <p className="mt-[7px] font-medium text-sm">&copy; {currentYear}</p>
         </div>
 
         <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">

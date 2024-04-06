@@ -3,39 +3,39 @@ import SubscribeForm from "@/components/subscribe-form";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
 import { marqueeImages } from "@/constants/marquee-images";
+import AboutBlock from "@/blocs/about-block";
 
 export default function Home() {
   return (
-    <main className="flex flex-col pt-24">
+    <main className="flex flex-col pt-24 overflow-x-hidden">
+
+      <div className="w-full">
+        <AboutBlock />
+      </div>
+
+      {/* Pricing */}
       <div className="w-full bg-neutral-50 py-16">
         <PricingBlock />
       </div>
 
       {/* Marquees */}
-      <div className="pt-16 mx-auto max-w-screen-xl w-full">
+      <div className="pt-16 mx-auto max-w-screen-xl w-full px-8">
         <h3 className="text-center text-3xl  font-semibold">
           Our trusted partners
         </h3>
-        <Marquee className="w-full mt-10" autoFill>
+        <Marquee autoFill className="w-full mt-12">
           {marqueeImages.map((image, i) => (
-            <Image
-              src={image}
-              alt=""
-              key={i}
-              width={100}
-              height={100}
-              className="ml-20"
-            />
+            <Image src={image} key={i} alt="" width={100} height={100} className="ml-20" />
           ))}
         </Marquee>
       </div>
 
       {/* NewsLetter */}
       <div className="mx-auto max-w-screen-xl grid md:grid-cols-2 gap-4 lg:gap-10 w-full py-16">
-        <div className="grid place-items-center order-2 lg:order-1">
+        <div className="grid place-items-center order-2 lg:order-1 px-8">
           <SubscribeForm />
         </div>
-        <div className="order-1 lg:order-2">
+        <div className="order-1 lg:order-2 px-8">
           <Image
             src="/newsletter.jpg"
             alt="newsletter"

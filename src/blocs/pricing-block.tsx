@@ -199,7 +199,7 @@ export default function PricingBlock() {
   ];
 
   return (
-    <div>
+    <div id="pricingPlans">
       <PricingHeader
         title="Pricing Plans"
         subtitle="Choose the plan that's right for you"
