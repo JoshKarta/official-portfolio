@@ -31,16 +31,18 @@ type PricingCardProps = {
   exclusive?: boolean;
 };
 
-const PricingHeader = ({
+export const SectionHeader = ({
   title,
   subtitle,
+  subTitleClassname
 }: {
   title: string;
-  subtitle: string;
+  subtitle?: string;
+  subTitleClassname?: string
 }) => (
   <section className="text-center">
     <h2 className="text-3xl font-bold">{title}</h2>
-    <p className="text-xl pt-1">{subtitle}</p>
+    <p className={cn("text-xl pt-1", subTitleClassname)}>{subtitle}</p>
     <br />
   </section>
 );
@@ -200,7 +202,7 @@ export default function PricingBlock() {
 
   return (
     <div id="pricingPlans">
-      <PricingHeader
+      <SectionHeader
         title="Pricing Plans"
         subtitle="Choose the plan that's right for you"
       />
