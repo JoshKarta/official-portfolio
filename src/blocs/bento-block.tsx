@@ -1,8 +1,6 @@
 import { BentoGrid, BentoGridItem } from "@/components/bento-grid";
 import {
   IconArrowWaveRightUp,
-  IconBoxAlignRightFilled,
-  IconBoxAlignTopLeft,
   IconClipboardCopy,
   IconFileBroken,
   IconSignature,
@@ -13,7 +11,7 @@ import Image from "next/image";
 
 export default function BentobBlock() {
   return (
-    <div className="py-16">
+    <div className="py-16 px-4">
       <SectionHeader
         title="Services"
         subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt nunc pulvinar sapien et ligula ullamcorper."
@@ -34,10 +32,6 @@ export default function BentobBlock() {
     </div>
   );
 }
-
-const Skeleton = () => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"></div>
-);
 
 const CardImage = ({ src }: { src: string }) => (
   <div className="flex flex-1 w-full h-full min-h-[6rem] relative overflow-hidden">
