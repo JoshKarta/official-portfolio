@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
+import { Skeleton } from "./ui/skeleton";
 
 export default function Header() {
   const links = [
@@ -21,7 +22,9 @@ export default function Header() {
     { label: "Projects", url: "" },
     { label: "Task", url: "#task" },
   ];
+
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +34,8 @@ export default function Header() {
     };
 
     window.addEventListener("scroll", handleScroll);
+
+    setIsMounted(true)
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -73,25 +78,30 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="sm:flex sm:gap-4">
-              <SignedOut>
-                <Button asChild>
-                  <SignInButton />
-                </Button>
+            {isMounted ?
+              <div className="sm:flex sm:gap-4">
+                <SignedOut>
+                  <Button asChild>
+                    <SignInButton />
+                  </Button>
 
-                <Button
-                  asChild
-                  variant={"secondary"}
-                  className="hidden md:inline-block"
-                >
-                  <SignUpButton />
-                </Button>
-              </SignedOut>
+                  <Button
+                    asChild
+                    variant={"secondary"}
+                    className="hidden md:inline-block"
+                  >
+                    <SignUpButton />
+                  </Button>
+                </SignedOut>
 
-              <SignedIn>
-                <UserButton afterSignOutUrl="/" />
-              </SignedIn>
-            </div>
+                <SignedIn>
+                  <UserButton afterSignOutUrl="/" />
+                </SignedIn>
+              </div> : <div className="sm:flex sm:gap-4">
+                <Skeleton className="w-20 h-10" />
+                <Skeleton className="w-20 h-10 hidden md:inline-block" />
+              </div>
+            }
 
             {/* Mobile nav */}
             <div className="block md:hidden">
