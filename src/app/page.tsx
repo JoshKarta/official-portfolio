@@ -31,7 +31,7 @@ export default function Home() {
         <AboutBlock />
       </motion.div>
 
-      <motion.div variants={variants} initial="hidden" whileInView="animate" transition={{ duration: 0.5, type: "spring" }} className="w-full" id="service">
+      <motion.div variants={variants} initial="hidden" whileInView="animate" transition={{ duration: 0.5, type: "spring" }} className="w-full" id="services">
         <BentobBlock />
       </motion.div>
 

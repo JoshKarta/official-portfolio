@@ -11,15 +11,16 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Skeleton } from "./ui/skeleton";
+import { scrollIntoView } from "@/lib/utils";
 
 export default function Header() {
   const links = [
     {
       label: "About",
-      url: "#about",
+      url: "about",
     },
-    { label: "Services", url: "" },
-    { label: "Projects", url: "" },
+    { label: "Services", url: "services" },
+    { label: "Projects", url: "projects" },
     { label: "Task", url: "#task" },
   ];
 
@@ -68,7 +69,7 @@ export default function Header() {
               <ul className="flex items-center gap-6 text-sm">
                 {links.map((link, index) => (
                   <li key={index}>
-                    <button className="font-medium text-base -tracking-wide text-neutral-500 transition hover:text-indigo-500 ease-in-out duration-300">
+                    <button onClick={() => { scrollIntoView(link.url) }} className="font-medium text-base -tracking-wide text-neutral-500 transition hover:text-indigo-500 ease-in-out duration-300">
                       {link.label}
                     </button>
                   </li>
