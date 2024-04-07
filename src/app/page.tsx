@@ -5,10 +5,15 @@ import Image from "next/image";
 import { marqueeImages } from "@/constants/marquee-images";
 import AboutBlock from "@/blocs/about-block";
 import BentobBlock from "@/blocs/bento-block";
+import { HeroBlock } from "@/blocs/hero-block";
 
 export default function Home() {
   return (
-    <main className="flex flex-col pt-24 overflow-x-hidden">
+    <main className="flex flex-col lg:pt-20 overflow-x-hidden bg-inherit">
+
+      <div className="w-full">
+        <HeroBlock />
+      </div>
 
       <div className="w-full" id="about">
         <AboutBlock />
