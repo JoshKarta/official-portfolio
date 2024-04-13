@@ -16,6 +16,10 @@ import { scrollIntoView } from "@/lib/utils";
 export default function Header() {
   const links = [
     {
+      label: "Home",
+      url: "home",
+    },
+    {
       label: "About",
       url: "about",
     },
@@ -34,6 +38,7 @@ export default function Header() {
       setIsScrolled(scrollPosition > 0);
     };
 
+    handleScroll()
     window.addEventListener("scroll", handleScroll);
 
     setIsMounted(true)
@@ -44,7 +49,7 @@ export default function Header() {
 
   return (
     <header
-      className={`backdrop-blur-sm fixed top-0 w-full z-50 ${isScrolled && "border-b bg-white"}`}
+      className={`bg-white fixed top-0 w-full z-50 ${isScrolled && "border-b"}`}
     >
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
@@ -69,9 +74,12 @@ export default function Header() {
               <ul className="flex items-center gap-6 text-sm">
                 {links.map((link, index) => (
                   <li key={index}>
-                    <button onClick={() => { scrollIntoView(link.url) }} className="font-medium text-base -tracking-wide text-neutral-500 transition hover:text-indigo-500 ease-in-out duration-300">
+                    <Button onClick={() => { scrollIntoView(link.url) }}
+                      variant={"ghost"}
+                      className="font-medium text-base -tracking-wide text-neutral-500 transition hover:text-indigo-500 ease-in-out duration-300 hover:bg-transparent px-2 py-1"
+                    >
                       {link.label}
-                    </button>
+                    </Button>
                   </li>
                 ))}
               </ul>
