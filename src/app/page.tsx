@@ -11,7 +11,7 @@ import { HeroBlock } from "@/blocs/hero-block";
 export default function Home() {
 
   return (
-    <main className="flex flex-col pt-20">
+    <main className="flex flex-col lg:pt-20">
 
       <div className="w-full" id="home">
         <HeroBlock />
