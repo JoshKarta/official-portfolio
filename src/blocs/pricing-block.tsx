@@ -11,9 +11,10 @@ import {
 } from "@/components/ui/card";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import React, { useState } from "react";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
+import { fadeUp } from "@/constants/variants";
 
 type PricingSwitchProps = {
   onSwitch: (value: string) => void;
@@ -201,7 +202,13 @@ export default function PricingBlock() {
   ];
 
   return (
-    <div id="pricingPlans">
+    <motion.div id="pricingPlans"
+      variants={fadeUp}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
+      transition={{ duration: .75 }}
+    >
       <SectionHeader
         title="Pricing Plans"
         subtitle="Choose the plan that's right for you"
@@ -212,6 +219,6 @@ export default function PricingBlock() {
           return <PricingCard key={plan.title} {...plan} isYearly={isYearly} />;
         })}
       </section>
-    </div>
+    </motion.div>
   );
 }

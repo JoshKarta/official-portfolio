@@ -1,3 +1,4 @@
+"use client"
 import { BentoGrid, BentoGridItem } from "@/components/bento-grid";
 import {
   IconArrowWaveRightUp,
@@ -8,10 +9,18 @@ import {
 } from "@tabler/icons-react";
 import { SectionHeader } from "./pricing-block";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeUp } from "@/constants/variants";
 
 export default function BentobBlock() {
   return (
-    <div className="py-16 px-4">
+    <motion.div className="py-16 px-4"
+      variants={fadeUp}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
+      transition={{ duration: .75 }}
+    >
       <SectionHeader
         title="Services"
         subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt nunc pulvinar sapien et ligula ullamcorper."
@@ -29,7 +38,7 @@ export default function BentobBlock() {
           />
         ))}
       </BentoGrid>
-    </div>
+    </motion.div>
   );
 }
 
