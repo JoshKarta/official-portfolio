@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ConvexClientProvider from "@/providers/ConvexClientProvider";
 import Header from "@/components/header";
 import { Toaster } from "@/components/ui/sonner";
 import Footer from "@/components/footer";
@@ -22,12 +21,10 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" href="/favicon.png" sizes="any" />
       <body className={inter.className}>
-        <ConvexClientProvider>
-          <Header />
-          {children}
-          <Footer />
-          <Toaster richColors position="top-right" />
-        </ConvexClientProvider>
+        <Header />
+        {children}
+        <Footer />
+        <Toaster richColors position="top-right" />
       </body>
     </html>
   );

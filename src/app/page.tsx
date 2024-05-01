@@ -42,9 +42,9 @@ export default function Home() {
       </div>
 
       {/* NewsLetter */}
-      <div>
+      {/* <div>
         <NewsBlock />
-      </div>
+      </div> */}
     </main>
   );
 }
