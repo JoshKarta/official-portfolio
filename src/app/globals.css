@@ -47,3 +47,9 @@
     @apply !text-[16px];
   }
 }
+
+@layer components {
+  .container-screen {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}

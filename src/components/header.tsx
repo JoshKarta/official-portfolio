@@ -40,7 +40,7 @@ export default function Header() {
     <header
       className={`bg-transparent fixed top-0 w-full z-50 ${isScrolled && "backdrop-blur-sm shadow-sm"}`}
     >
-      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+      <div className="container-screen">
         <div className="flex h-16 items-center justify-between">
           <div className="md:flex md:items-center md:gap-12">
             <Link className="block text-indigo-600 hover:scale-95 transition-transform transform duration-150" href="/">

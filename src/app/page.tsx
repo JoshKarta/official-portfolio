@@ -3,13 +3,12 @@ import AboutBlock from "@/blocs/about-block";
 import BentobBlock from "@/blocs/bento-block";
 import { HeroBlock } from "@/blocs/hero-block";
 import MarqueeBlock from "@/blocs/marquee-block";
-import NewsBlock from "@/blocs/news-block";
 import { ProjectsBlock } from "@/blocs/projects-block";
 
 export default function Home() {
 
   return (
-    <main className="flex flex-col lg:pt-20">
+    <main className="flex flex-col bg-primary-two">
 
       {/* Hero */}
       <div className="w-full" id="home">
