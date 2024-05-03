@@ -2,7 +2,6 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import { Skeleton } from "./ui/skeleton";
 import { scrollIntoView } from "@/lib/utils";
 
 export default function Header() {
@@ -21,7 +20,6 @@ export default function Header() {
   ];
 
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +31,6 @@ export default function Header() {
     handleScroll()
     window.addEventListener("scroll", handleScroll);
 
-    setIsMounted(true)
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -41,12 +38,12 @@ export default function Header() {
 
   return (
     <header
-      className={`bg-white fixed top-0 w-full z-50 ${isScrolled && "border-b"}`}
+      className={`bg-transparent fixed top-0 w-full z-50 ${isScrolled && "backdrop-blur-sm shadow-sm"}`}
     >
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="md:flex md:items-center md:gap-12">
-            <Link className="block text-indigo-600" href="/">
+            <Link className="block text-indigo-600 hover:scale-95 transition-transform transform duration-150" href="/">
               <svg
                 className="h-8"
                 viewBox="0 0 28 24"
@@ -68,7 +65,7 @@ export default function Header() {
                   <li key={index}>
                     <Button onClick={() => { scrollIntoView(link.url) }}
                       variant={"ghost"}
-                      className="font-medium text-base -tracking-wide text-neutral-500 transition hover:text-indigo-500 ease-in-out duration-300 hover:bg-transparent px-2 py-1"
+                      className="font-medium text-base -tracking-wide text-zinc-300 transition hover:text-indigo-500 ease-in-out duration-300 hover:bg-transparent px-2 py-1"
                     >
                       {link.label}
                     </Button>
