@@ -21,12 +21,12 @@ export default function Home() {
       </div>
 
       {/* Services */}
-      <div className="w-full" id="services">
+      {/* <div className="w-full" id="services">
         <BentobBlock />
-      </div>
+      </div> */}
 
-      {/* Projects */}
-      <div className="pb-16">
+      {/* Experience */}
+      <div className="pb-16" id="experience">
         <ProjectsBlock />
       </div>
 

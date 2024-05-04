@@ -21,7 +21,7 @@ export const HeroParallax = ({
     }[];
 }) => {
     const firstRow = products.slice(0, 5);
-    const secondRow = products.slice(5, 10);
+    const secondRow = products.slice(0, 5).reverse();
     const thirdRow = products.slice(10, 15);
     const ref = React.useRef(null);
     const { scrollYProgress } = useScroll({
@@ -110,11 +110,11 @@ export const HeroParallax = ({
 export const Header = () => {
     return (
         <div className="max-w-7xl relative mx-auto px-4 w-full  left-0 top-0">
-            <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
-                The Ultimate <br /> development studio
+            <h1 className="text-2xl md:text-5xl font-bold text-zinc-100 dark:text-white">
+                The Experience <br /> that lead to this moment.
             </h1>
-            <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae. Ornare arcu dui vivamus arcu felis bibendum.
+            <p className="max-w-2xl text-sm md:text-base mt-8 text-zinc-100 dark:text-neutral-200">
+                These are some projects I worked on when I was a intern at TAD. After my intern period I got affored a full-time position as a Front-End Developer within the company.That is were I learned a lot of new stuff and some design basics. I also worked on many Wordpress projects which one of them is Sharpview.
             </p>
         </div>
     );
@@ -144,13 +144,14 @@ export const ProductCard = ({
         >
             <Link
                 href={product.link}
-                className="block group-hover/product:shadow-2xl "
+                className="block group-hover/product:shadow-2xl"
+                target="_blank"
             >
                 <Image
                     src={product.thumbnail}
-                    height="600"
-                    width="600"
-                    className="object-cover object-left-top absolute h-full w-full inset-0"
+                    height="1440"
+                    width="1440"
+                    className="object-cover object-left absolute h-full w-full inset-0"
                     alt={product.title}
                 />
             </Link>
