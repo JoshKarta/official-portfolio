@@ -21,7 +21,7 @@ export default function AboutBlock() {
                     About
                 </h3>
                 <p className="text-zinc-100 mt-2 z-20">Software Engineer based in Paramaribo, Suriname. <br />
-                    Formerly at TAD as Front-End Developer.</p>
+                    Formerly at TAD as &lt;Front-End Developer/&gt;.</p>
                 <div className="relative flex w-full justify-center overflow-hidden h-[500px]">
                     <img
                         src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

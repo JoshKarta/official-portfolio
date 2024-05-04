@@ -1,4 +1,5 @@
 "use client"
+import { TypewriterEffect } from "@/components/typewriter-effect";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -8,7 +9,7 @@ import { Circle, Square, Triangle, X } from "lucide-react";
 
 export function HeroBlock() {
     // https://dribbble.com/shots/16712560-Website-UI
-
+    const words = [{ text: "Kartadiwirja" }, { text: "Josh" }]
     return (
         <motion.div initial={{ opacity: 0 }} viewport={{ once: true }} animate={{ opacity: 1 }} transition={{ duration: .5 }}>
             <div className="container-screen text-white py-20 min-h-screen grid">
@@ -21,14 +22,15 @@ export function HeroBlock() {
                             <Badge className="w-fit animate-pulse flex items-center gap-2">Software Engineer <div className="h-2 w-2 rounded-full bg-foreground" /></Badge>
                             <Separator className="w-12" />
                         </div>
-                        <h1 className="capitalize font-bold text-5xl tracking-wider">Kartadiwirja <br /> Josh</h1>
-                        <Button className="w-fit rounded-full">Read More</Button>
+                        <TypewriterEffect words={words} />
+                        {/* <h1 className="capitalize font-bold text-5xl tracking-wider">Kartadiwirja <br /> Josh</h1> */}
+                        <Button className="hidden md:inline-block w-fit rounded-full">Read More</Button>
                     </div>
                     <div className="relative h-full">
                         <Circle className="absolute bottom-0 right-0 text-zinc-300" />
                         <Triangle className="hidden md:inline-block absolute top-8 inset-x-1/2 text-zinc-300" />
                         <img src="/graph.png" alt="svg" className="absolute inset-0 z-0" />
-                        <div className="grid grid-cols-2 gap-4 mt-28">
+                        <div className="grid grid-cols-2 gap-4 mt-10 md:mt-28">
                             <Card className="flex-1 w-full row-span-2 shadow-md shadow-slate-500 z-20">
                                 <CardHeader></CardHeader>
                                 <CardContent></CardContent>
