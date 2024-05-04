@@ -28,8 +28,16 @@ const config = {
     },
     extend: {
       colors: {
-        "primary-two": "#000814",
-        "secondary-two": "001d3d",
+        "primary-two": {
+          300: "#666b72",
+          400: "#333943",
+          500: "#000814",
+          600: "#000610",
+          700: "#00050c",
+          800: "#000308",
+          900: "#000204",
+        },
+        "secondary-two": "#001d3d",
         "accent-two": "#003566",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

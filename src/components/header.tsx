@@ -38,7 +38,7 @@ export default function Header() {
 
   return (
     <header
-      className={`bg-transparent fixed top-0 w-full z-50 ${isScrolled && "backdrop-blur-sm shadow-sm"}`}
+      className={`bg-transparent fixed top-0 w-full z-50 ${isScrolled && "backdrop-blur-md shadow-sm"}`}
     >
       <div className="container-screen">
         <div className="flex h-16 items-center justify-between">
@@ -63,7 +63,7 @@ export default function Header() {
               <ul className="flex items-center gap-6 text-sm">
                 {links.map((link, index) => (
                   <li key={index}>
-                    <Button onClick={() => { scrollIntoView(link.url) }}
+                    <Button onClick={() => scrollIntoView(link.url)}
                       variant={"ghost"}
                       className="font-medium text-base -tracking-wide text-zinc-300 transition hover:text-indigo-500 ease-in-out duration-300 hover:bg-transparent px-2 py-1"
                     >

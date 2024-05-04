@@ -8,7 +8,7 @@ import { ProjectsBlock } from "@/blocs/projects-block";
 export default function Home() {
 
   return (
-    <main className="flex flex-col bg-primary-two">
+    <main className="flex flex-col bg-primary-two-500">
 
       {/* Hero */}
       <div className="w-full" id="home">
