@@ -4,8 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
 import { Button } from "./ui/button"
-import { Input } from "./ui/input"
-import { Textarea } from "./ui/textarea"
 import emailjs from "@emailjs/browser"
 import { toast } from "sonner"
 import { HyperUiInput } from "./hyper-ui-input"
@@ -37,17 +35,37 @@ export default function ContactForm() {
     }
 
     function onSubmit(values: z.infer<typeof formSchema>) {
-        emailjs.send(process.env.EMAIL_JS_SERVICE_ID, process.env.EMAIL_JS_TEMPLATE_ID, templateParams, process.env.NEXT_PUBLIC_EMAIL_JS_KEY).then(
-            () => {
-                toast.success("Thank for contacting. We'll be in touch soon!")
-                console.log('SUCCESS!');
-            },
-            (error) => {
-                toast.error("Somthing went wrong. Please try again")
-                console.log('FAILED...', error);
-            },
-        );
+        if (
+            process.env.EMAIL_JS_SERVICE_ID &&
+            process.env.EMAIL_JS_TEMPLATE_ID &&
+            process.env.NEXT_PUBLIC_EMAIL_JS_KEY
+        ) {
+            emailjs
+                .send(
+                    process.env.EMAIL_JS_SERVICE_ID,
+                    process.env.EMAIL_JS_TEMPLATE_ID,
+                    templateParams,
+                    process.env.NEXT_PUBLIC_EMAIL_JS_KEY
+                )
+                .then(
+                    () => {
+                        toast.success(
+                            "Thank for contacting. We'll be in touch soon!"
+                        );
+                        console.log('SUCCESS!');
+                    },
+                    (error) => {
+                        toast.error("Something went wrong. Please try again");
+                        console.log('FAILED...', error);
+                    }
+                );
+        } else {
+            console.error(
+                "One or more environment variables are undefined. Please check your environment configuration."
+            );
+        }
     }
+
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
