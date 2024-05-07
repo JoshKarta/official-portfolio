@@ -1,102 +1,68 @@
-"use client";
-import { HeroParallax } from "@/components/hero-parallex";
-import React from "react";
+import Heading from "@/components/heading";
+import HyperUiCard from "@/components/hyper-ui-card";
+import { Button } from "@/components/ui/button";
+import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
-export function ProjectsBlock() {
-    return <HeroParallax products={products} />;
+export default function ProjectsBlock() {
+    const projects = [
+        {
+            img: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+            name: "Priority",
+            url: "#",
+            introduction: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus ariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atque dignissimos.Molestias explicabo corporis voluptatem?"
+        },
+        {
+            img: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+            name: "Priority",
+            url: "#",
+            introduction: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus ariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atque dignissimos.Molestias explicabo corporis voluptatem?"
+        },
+    ]
+    return (
+        <div className="container-screen">
+            <Heading title="Projects">
+                These are some of my personal projects that I build myself&#46;
+            </Heading>
+            <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {projects.map((item, i) => (
+                    <Drawer key={i}>
+                        <DrawerTrigger className={cn("focus:!ring-0 focus:border-none", i % 2 === 0 && "sm:translate-y-4")}>
+                            <HyperUiCard item={item} />
+                        </DrawerTrigger>
+                        <DrawerContent className="min-h-dvh text-zinc-100 bg-primary-two-500 border-primary-two-500">
+                            <DrawerHeader className="text-left mt-4">
+                                <DrawerTitle>{item.name}</DrawerTitle>
+                                <DrawerDescription>{item.introduction}</DrawerDescription>
+                            </DrawerHeader>
+                            <ScrollArea className="h-full">
+                                <div className="w-full px-4 mt-2 grid lg:grid-cols-3 gap-4 text-muted-foreground text-sm">
+                                    <img
+                                        alt=""
+                                        src={item.img}
+                                        className="h-56 lg:h-96 w-full object-cover rounded-lg lg:col-span-2"
+                                    />
+                                    <div className="flex flex-col gap-4">
+                                        <p>
+                                            {item.description}
+                                        </p>
+                                        <Button asChild className="rounded-full !w-fit group" variant={"outline"}>
+                                            <Link href={item.url} className="w-fit">
+                                                Visit <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 duration-150 ease-linear transition" />
+                                            </Link>
+                                        </Button>
+                                    </div>
+                                </div>
+                            </ScrollArea>
+                        </DrawerContent>
+                    </Drawer>
+                ))}
+            </div>
+        </div>
+    )
 }
-export const products = [
-    {
-        title: "Smart ConneXXionZ N.V.",
-        link: "https://www.smartconnexxionz.com/",
-        thumbnail:
-            "/smartconnexxionz.png",
-    },
-    {
-        title: "Kings Enterprises N.V",
-        link: "https://www.kings.sr/",
-        thumbnail:
-            "/kings.png",
-    },
-    {
-        title: "TAD",
-        link: "https://tad.sr/",
-        thumbnail:
-            "/tad.png",
-    },
-
-    {
-        title: "Queens Hotel",
-        link: "https://www.queenshotelsuriname.com/",
-        thumbnail:
-            "/queenshotel.png",
-    },
-    // {
-    //     title: "Editrix AI",
-    //     link: "https://editrix.ai",
-    //     thumbnail:
-    //         "https://aceternity.com/images/products/thumbnails/new/editrix.png",
-    // },
-    // {
-    //     title: "Pixel Perfect",
-    //     link: "https://app.pixelperfect.quest",
-    //     thumbnail:
-    //         "https://aceternity.com/images/products/thumbnails/new/pixelperfect.png",
-    // },
-
-    // {
-    //     title: "Algochurn",
-    //     link: "https://algochurn.com",
-    //     thumbnail:
-    //         "https://aceternity.com/images/products/thumbnails/new/algochurn.png",
-    // },
-    // {
-    //     title: "Aceternity UI",
-    //     link: "https://ui.aceternity.com",
-    //     thumbnail:
-    //         "https://aceternity.com/images/products/thumbnails/new/aceternityui.png",
-    // },
-    // {
-    //     title: "Tailwind Master Kit",
-    //     link: "https://tailwindmasterkit.com",
-    //     thumbnail:
-    //         "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
-    // },
-    // {
-    //     title: "SmartBridge",
-    //     link: "https://smartbridgetech.com",
-    //     thumbnail:
-    //         "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
-    // },
-    // {
-    //     title: "Renderwork Studio",
-    //     link: "https://renderwork.studio",
-    //     thumbnail:
-    //         "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
-    // },
-
-    // {
-    //     title: "Creme Digital",
-    //     link: "https://cremedigital.com",
-    //     thumbnail:
-    //         "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
-    // },
-    // {
-    //     title: "Golden Bells Academy",
-    //     link: "https://goldenbellsacademy.com",
-    //     thumbnail:
-    //         "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
-    // },
-    // {
-    //     title: "Invoker Labs",
-    //     link: "https://invoker.lol",
-    //     thumbnail:
-    //         "https://aceternity.com/images/products/thumbnails/new/invoker.png",
-    // },
-    // {
-    //     title: "E Free Invoice",
-    //     link: "https://efreeinvoice.com",
-    //     thumbnail:
-    //         "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
-    // },
-];

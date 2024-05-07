@@ -1,9 +1,8 @@
-import PricingBlock from "@/blocs/pricing-block";
 import AboutBlock from "@/blocs/about-block";
-import BentobBlock from "@/blocs/bento-block";
 import { HeroBlock } from "@/blocs/hero-block";
 import MarqueeBlock from "@/blocs/marquee-block";
-import { ProjectsBlock } from "@/blocs/projects-block";
+import { ExperienceBlock } from "@/blocs/experiences-block";
+import ProjectsBlock from "@/blocs/projects-block";
 
 export default function Home() {
 
@@ -27,17 +26,17 @@ export default function Home() {
 
       {/* Experience */}
       <div className="pb-16" id="experience">
-        <ProjectsBlock />
+        <ExperienceBlock />
       </div>
 
-      {/* Pricing */}
-      <div className="w-full bg-neutral-50/55 py-16">
-        <PricingBlock />
+      {/* Projects */}
+      <div className="w-full py-16 bg-primary-two-600" id="projects">
+        <ProjectsBlock />
       </div>
 
       {/* Marquees */}
       <div>
-        <MarqueeBlock />
+        {/* <MarqueeBlock /> */}
       </div>
 
       {/* NewsLetter */}

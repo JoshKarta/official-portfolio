@@ -15,6 +15,7 @@ export default function Header() {
       url: "about",
     },
     { label: "Experience", url: "experience" },
+    { label: "Projects", url: "projects" },
     // { label: "Services", url: "services" },
     // { label: "Projects", url: "projects" },
     { label: "Task", url: "#task" },

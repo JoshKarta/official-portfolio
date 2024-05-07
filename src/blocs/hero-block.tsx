@@ -11,7 +11,7 @@ export function HeroBlock() {
     // https://dribbble.com/shots/16712560-Website-UI
     const words = [{ text: "Kartadiwirja" }, { text: "Josh" }]
     return (
-        <motion.div initial={{ opacity: 0 }} viewport={{ once: true }} animate={{ opacity: 1 }} transition={{ duration: .5 }}>
+        <div>
             <div className="container-screen text-white py-20 min-h-screen grid">
                 <div className="grid md:grid-cols-2">
                     <div className="w-full relative flex flex-col justify-center gap-8">
@@ -48,6 +48,6 @@ export function HeroBlock() {
                 </div>
             </div>
             <img src="/waves.png" alt="waves" className="w-full h-fit mt-24 md:mt-0" />
-        </motion.div>
+        </div>
     );
 }
