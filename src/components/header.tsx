@@ -16,9 +16,7 @@ export default function Header() {
     },
     { label: "Experience", url: "experience" },
     { label: "Projects", url: "projects" },
-    // { label: "Services", url: "services" },
-    // { label: "Projects", url: "projects" },
-    { label: "Task", url: "#task" },
+    { label: "Contact", url: "contact" },
   ];
 
   const [isScrolled, setIsScrolled] = useState(false);
