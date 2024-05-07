@@ -46,6 +46,12 @@
   input {
     @apply !text-[16px];
   }
+
+  /* Remove autofill background color */
+  /* input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+    background-color: transparent !important;
+  } */
 }
 
 @layer components {

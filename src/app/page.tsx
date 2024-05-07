@@ -1,8 +1,8 @@
 import AboutBlock from "@/blocs/about-block";
 import { HeroBlock } from "@/blocs/hero-block";
-import MarqueeBlock from "@/blocs/marquee-block";
 import { ExperienceBlock } from "@/blocs/experiences-block";
 import ProjectsBlock from "@/blocs/projects-block";
+import ContactBlock from "@/blocs/contact-block";
 
 export default function Home() {
 
@@ -40,9 +40,9 @@ export default function Home() {
       </div>
 
       {/* NewsLetter */}
-      {/* <div>
-        <NewsBlock />
-      </div> */}
+      <div className="py-16" id="contact">
+        <ContactBlock />
+      </div>
     </main>
   );
 }
