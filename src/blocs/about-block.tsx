@@ -8,7 +8,7 @@ export default function AboutBlock() {
         <div
             className="w-full dark:bg-black bg-primary-two-600 dark:bg-grid-white/[0.1] bg-grid-slate-500/[0.1] relative flex flex-col justify-center py-16">
             {/* Radial gradient for the container to give a faded look */}
-            <div className="z-0 absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-primary-two-600 [mask-image:radial-gradient(ellipse_at_center,transparent_0%,black)]"></div>
+            <div className="z-0 absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-primary-two-600 [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black)]"></div>
 
             {/* Content */}
             <div className="container-screen text-zinc-100 w-full">

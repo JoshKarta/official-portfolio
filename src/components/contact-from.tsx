@@ -11,10 +11,10 @@ import { HyperUiTextArea } from "./hyper-ui-textarea"
 
 export default function ContactForm() {
     const formSchema = z.object({
-        fullname: z.string().min(2).max(100),
+        fullname: z.string().min(2, { message: "Please enter your fullname." }).max(100),
         email: z.string().email(),
-        subject: z.string().min(1),
-        message: z.string().min(1)
+        subject: z.string().min(1, { message: "What do you wanna talk about?" }),
+        message: z.string().min(1, { message: "Please provide a brief description of the project." })
     })
 
     const form = useForm<z.infer<typeof formSchema>>({
@@ -52,11 +52,11 @@ export default function ContactForm() {
                         toast.success(
                             "Thank for contacting. We'll be in touch soon!"
                         );
-                        console.log('SUCCESS!');
+                        // console.log('SUCCESS!');
                     },
                     (error) => {
                         toast.error("Something went wrong. Please try again");
-                        console.log('FAILED...', error);
+                        // console.log('FAILED...', error);
                     }
                 );
         } else {

@@ -4,12 +4,13 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 import { Circle, Square, Triangle, X } from "lucide-react";
 
 export function HeroBlock() {
     // https://dribbble.com/shots/16712560-Website-UI
     const words = [{ text: "Kartadiwirja" }, { text: "Josh" }]
+    const images = ["/me-coding.jpeg", "<Code new />", "/code.jpeg"]
     return (
         <div>
             <div className="container-screen text-white py-20 min-h-screen grid">
@@ -29,20 +30,27 @@ export function HeroBlock() {
                     <div className="relative h-full">
                         <Circle className="absolute bottom-0 right-0 text-zinc-300" />
                         <Triangle className="hidden md:inline-block absolute top-8 inset-x-1/2 text-zinc-300" />
-                        <img src="/graph.png" alt="svg" className="absolute inset-0 z-0" />
+                        <img src="/graph.png" alt="svg" className="absolute inset-0 z-10" />
                         <div className="grid grid-cols-2 gap-4 mt-10 md:mt-28">
-                            <Card className="flex-1 w-full row-span-2 shadow-md shadow-slate-500 z-20">
-                                <CardHeader></CardHeader>
-                                <CardContent></CardContent>
-                            </Card>
-                            <Card className="flex-1 w-full shadow-md shadow-slate-500">
+                            {images.map((item, i) => (
+                                // <Card key={i} className={cn("flex-1 w-full shadow-md shadow-slate-500 z-20 p-0 overflow-hidden border-slate-500 !h-fit", i === 0 && "row-span-2")}>
+                                //     <CardContent className="p-0">
+                                //         <img src={item} alt="" className={cn("w-full h-[400px] object-cover")} />
+                                //     </CardContent>
+                                // </Card>
+                                <Card key={i} className={cn("flex-1 w-full shadow-md shadow-slate-500 z-20 ", i === 0 ? "row-span-2" : i === 1 ? "!z-0" : "")}>
+                                    <CardHeader></CardHeader>
+                                    <CardContent></CardContent>
+                                </Card>
+                            ))}
+                            {/* <Card className="flex-1 w-full shadow-md shadow-slate-500">
                                 <CardHeader></CardHeader>
                                 <CardContent></CardContent>
                             </Card>
                             <Card className="flex-1 w-full shadow-md shadow-slate-500 z-20">
                                 <CardHeader></CardHeader>
                                 <CardContent></CardContent>
-                            </Card>
+                            </Card> */}
                         </div>
                     </div>
                 </div>

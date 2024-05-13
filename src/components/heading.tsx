@@ -1,6 +1,8 @@
-export default function Heading({ title, children }: { title: string, children?: string | React.ReactNode }) {
+import { cn } from "@/lib/utils";
+
+export default function Heading({ title, className, children }: { title: string, className?: string, children?: string | React.ReactNode }) {
     return (
-        <div>
+        <div className={cn(className)}>
             <h3 className="text-3xl font-bold text-zinc-100">
                 {title}
             </h3>
