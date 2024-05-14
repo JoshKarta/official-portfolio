@@ -62,7 +62,7 @@ export default function ProjectsBlock() {
                                             <p>
                                                 {item.description}
                                             </p>
-                                            <Button asChild className="rounded-full !w-fit group" variant={"outline"}>
+                                            <Button asChild className="rounded-full w-full group" variant={"outline"}>
                                                 <Link href={item.url} className="w-fit">
                                                     Visit <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 duration-150 ease-linear transition" />
                                                 </Link>

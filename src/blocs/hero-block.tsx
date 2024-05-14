@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { Circle, Square, Triangle, X } from "lucide-react";
+import { ArrowRight, Circle, Square, Triangle, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeIn, fadeUp } from "@/constants/variants";
 
@@ -33,7 +33,7 @@ export function HeroBlock() {
                         </div>
                         <TypewriterEffect words={words} className="h-12 z-20" />
                         {/* <h1 className="capitalize font-bold text-5xl tracking-wider">Kartadiwirja <br /> Josh</h1> */}
-                        <Button className="hidden md:inline-block w-fit rounded-full">Read More</Button>
+                        <Button className="hidden md:flex w-fit rounded-full">Read More <ArrowRight className="h-4 w-4 ml-2" /></Button>
                     </motion.div>
                     <motion.div
                         variants={fadeUp}

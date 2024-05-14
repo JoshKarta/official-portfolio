@@ -19,7 +19,7 @@ export default function ContactBlock() {
                 whileInView="animate"
                 transition={{ duration: .75 }}
                 className="w-full text-zinc-100 flex flex-col gap-6 max-w-lg">
-                <Heading title="Let's get in touch" className="!text-center">Let's chat about how I can help you.</Heading>
+                <Heading title="Let's get in touch" className="!text-center">Let&apos;s chat about how I can help you.</Heading>
                 <ContactForm />
             </motion.div>
         </div>

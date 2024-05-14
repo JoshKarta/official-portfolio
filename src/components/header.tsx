@@ -3,21 +3,28 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { scrollIntoView } from "@/lib/utils";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import { FolderKanban, Home, Mail, Menu, PenLine, UserRound, X } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const links = [
     {
       label: "Home",
       url: "home",
+      icon: <Home className="h-4 w-4" />
     },
     {
       label: "About",
       url: "about",
+      icon: <UserRound className="h-4 w-4" />
     },
-    { label: "Experience", url: "experience" },
-    { label: "Projects", url: "projects" },
-    { label: "Contact", url: "contact" },
+    { label: "Experience", url: "experience", icon: <PenLine className="h-4 w-4" /> },
+    { label: "Projects", url: "projects", icon: <FolderKanban className="h-4 w-4" /> },
+    { label: "Contact", url: "contact", icon: <Mail className="h-4 w-4" /> },
   ];
+
+  const [isOpen, setIsOpen] = useState(false);
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -58,6 +65,7 @@ export default function Header() {
             </Link>
           </div>
 
+          {/* Tablet nav */}
           <div className="hidden md:block">
             <nav aria-label="Global">
               <ul className="flex items-center gap-6 text-sm">
@@ -73,6 +81,43 @@ export default function Header() {
                 ))}
               </ul>
             </nav>
+          </div>
+
+          {/* Mobile nav */}
+          <div className="block md:hidden relative">
+            <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+              <DropdownMenuTrigger asChild>
+                <Button>
+                  {isOpen ?
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .5 }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+                    </motion.div>
+                    :
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .5 }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
+                    </motion.div>
+                  }
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-secondary-two border-none text-zinc-100 !h-fit">
+                {links.map((item, i) => (
+                  // <motion.div key={i}
+                  //   variants={fadeUp}
+                  //   initial="initial"
+                  //   whileInView="animate"
+                  //   transition={{ duration: .25, delay: 0.15 * i, type: "spring" }}
+                  // >
+                  //   {item.url &&
+                  <DropdownMenuItem key={i} onClick={() => scrollIntoView(item.url)} className="font-semibold py-2 flex items-center gap-2 transition hover:text-indigo-500 ease-in-out duration-300">
+                    {item.icon}
+                    {item.label}
+                  </DropdownMenuItem>
+                  //   }
+                  // </motion.div>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
           </div>
         </div>
       </div>
