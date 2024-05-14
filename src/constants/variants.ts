@@ -8,3 +8,12 @@ export const fadeUp = {
         y:0
     },
 }
+
+export const fadeIn = {
+    initial: {
+        opacity: 0
+    },
+    animate: {
+        opacity:1
+    }
+}

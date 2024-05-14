@@ -6,6 +6,8 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { Circle, Square, Triangle, X } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeIn, fadeUp } from "@/constants/variants";
 
 export function HeroBlock() {
     // https://dribbble.com/shots/16712560-Website-UI
@@ -15,19 +17,31 @@ export function HeroBlock() {
         <div>
             <div className="container-screen text-white py-20 min-h-screen grid">
                 <div className="grid md:grid-cols-2">
-                    <div className="w-full relative flex flex-col justify-center gap-8">
+                    <motion.div
+                        variants={fadeUp}
+                        initial="initial"
+                        viewport={{ once: true }}
+                        whileInView="animate"
+                        transition={{ duration: .75, type: 'spring' }}
+                        className="w-full relative flex flex-col justify-center gap-8">
                         <X className="absolute right-14 top-14 text-zinc-300" />
-                        <Square className="absolute left-2/3 top-2/3 text-accent-two" />
+                        <Square className="absolute left-2/3 top-2/3 text-accent-two z-0" />
                         <Triangle className="hidden lg:inline-block absolute bottom-0 text-zinc-300" />
                         <div className="flex items-center gap-2">
                             <Badge className="w-fit animate-pulse flex items-center gap-2">Software Engineer <div className="h-2 w-2 rounded-full bg-foreground" /></Badge>
                             <Separator className="w-12" />
                         </div>
-                        <TypewriterEffect words={words} />
+                        <TypewriterEffect words={words} className="h-12 z-20" />
                         {/* <h1 className="capitalize font-bold text-5xl tracking-wider">Kartadiwirja <br /> Josh</h1> */}
                         <Button className="hidden md:inline-block w-fit rounded-full">Read More</Button>
-                    </div>
-                    <div className="relative h-full">
+                    </motion.div>
+                    <motion.div
+                        variants={fadeUp}
+                        initial="initial"
+                        viewport={{ once: true }}
+                        whileInView="animate"
+                        transition={{ duration: .75, delay: .15, type: "spring" }}
+                        className="relative h-full">
                         <Circle className="absolute bottom-0 right-0 text-zinc-300" />
                         <Triangle className="hidden md:inline-block absolute top-8 inset-x-1/2 text-zinc-300" />
                         <img src="/graph.png" alt="svg" className="absolute inset-0 z-10" />
@@ -52,10 +66,10 @@ export function HeroBlock() {
                                 <CardContent></CardContent>
                             </Card> */}
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
-            <img src="/waves.png" alt="waves" className="w-full h-fit mt-24 md:mt-0" />
+            {/* <img src="/waves.png" alt="waves" className="w-full h-fit mt-24 md:mt-0" /> */}
         </div>
     );
 }

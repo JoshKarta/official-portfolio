@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { fadeIn, fadeUp } from "@/constants/variants";
 
 export default function AboutBlock() {
     return (
@@ -11,7 +12,13 @@ export default function AboutBlock() {
             <div className="z-0 absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-primary-two-600 [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black)]"></div>
 
             {/* Content */}
-            <div className="container-screen text-zinc-100 w-full">
+            <motion.div
+                variants={fadeUp}
+                initial="initial"
+                viewport={{ once: true }}
+                whileInView="animate"
+                transition={{ duration: .75 }}
+                className="container-screen text-zinc-100 w-full">
                 <h3 className="text-3xl font-bold z-20">
                     About
                 </h3>
@@ -28,7 +35,7 @@ export default function AboutBlock() {
                 <div className="flex justify-center mt-4">
                     <Button asChild className="rounded-full text-zinc-100 bg-transparent" variant={"outline"}><Link href="/about">Read more</Link></Button>
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 }
