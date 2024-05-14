@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import { Toaster } from "@/components/ui/sonner";
 import Footer from "@/components/footer";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <Toaster richColors position="top-right" />
+        <Analytics />
       </body>
     </html>
   );
