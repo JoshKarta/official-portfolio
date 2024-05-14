@@ -7,7 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Circle, Square, Triangle, X } from "lucide-react";
 import { motion } from "framer-motion";
-import { fadeIn, fadeUp } from "@/constants/variants";
+import { fadeUp } from "@/constants/variants";
 
 export function HeroBlock() {
     // https://dribbble.com/shots/16712560-Website-UI

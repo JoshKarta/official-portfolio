@@ -3,14 +3,35 @@ import { HeroBlock } from "@/blocs/hero-block";
 import { ExperienceBlock } from "@/blocs/experiences-block";
 import ProjectsBlock from "@/blocs/projects-block";
 import ContactBlock from "@/blocs/contact-block";
+import { sanityClient } from "@/lib/sanity";
 
-export default function Home() {
+async function getData() {
+  const queryHeroSection = `*[_type== "hero"] {badge, name}[0]`
+  const queryAboutSection = `*[_type== "about"] {title, description}[0]`
+  const queryExperienceSection = `*[_type== "experienceSection"] {title, description}[0]`
+  const queryExperience = `*[_type== "experience"] {title, link, thumbnail}`
+  const queryProjects = `*[_type== "about"] {title, description}`
+
+  const query = `{
+    "hero": ${queryHeroSection},
+    "about": ${queryAboutSection},
+    "experience": ${queryExperienceSection},
+    "experienceProjects": ${queryExperience},
+  }`
+
+  const data = await sanityClient.fetch(query)
+
+  return data
+}
+
+export default async function Home() {
+  const data = await getData()
 
   return (
     <main className="flex flex-col bg-primary-two-500">
 
       {/* Hero */}
-      <div className="w-full" id="home">
+      <div className="w-full" id="hero">
         <HeroBlock />
       </div>
 

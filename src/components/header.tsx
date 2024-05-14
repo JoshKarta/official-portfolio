@@ -11,7 +11,7 @@ export default function Header() {
   const links = [
     {
       label: "Home",
-      url: "home",
+      url: "hero",
       icon: <Home className="h-4 w-4" />
     },
     {

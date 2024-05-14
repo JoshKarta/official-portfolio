@@ -14,14 +14,14 @@ import { fadeUp } from "@/constants/variants";
 export default function ProjectsBlock() {
     const projects = [
         {
-            img: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+            thumbnail: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
             name: "Priority",
             url: "#",
             introduction: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus ariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atque dignissimos.Molestias explicabo corporis voluptatem?"
         },
         {
-            img: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+            thumbnail: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
             name: "Priority",
             url: "#",
             introduction: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -55,7 +55,7 @@ export default function ProjectsBlock() {
                                     <div className="w-full px-4 mt-2 grid lg:grid-cols-3 gap-4 text-muted-foreground text-sm">
                                         <img
                                             alt=""
-                                            src={item.img}
+                                            src={item.thumbnail}
                                             className="h-56 lg:h-96 w-full object-cover rounded-lg lg:col-span-2"
                                         />
                                         <div className="flex flex-col gap-4">
