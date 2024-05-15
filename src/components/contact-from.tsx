@@ -27,43 +27,34 @@ export default function ContactForm() {
         },
     })
 
-    const templateParams = {
-        from_name: form.getValues().fullname,
-        subject: form.getValues().subject,
-        from_email: form.getValues().email,
-        message: form.getValues().message
-    }
 
     function onSubmit(values: z.infer<typeof formSchema>) {
-        if (
-            process.env.EMAIL_JS_SERVICE_ID &&
-            process.env.EMAIL_JS_TEMPLATE_ID &&
-            process.env.NEXT_PUBLIC_EMAIL_JS_KEY
-        ) {
-            emailjs
-                .send(
-                    process.env.EMAIL_JS_SERVICE_ID,
-                    process.env.EMAIL_JS_TEMPLATE_ID,
-                    templateParams,
-                    process.env.NEXT_PUBLIC_EMAIL_JS_KEY
-                )
-                .then(
-                    () => {
-                        toast.success(
-                            "Thank for contacting. We'll be in touch soon!"
-                        );
-                        // console.log('SUCCESS!');
-                    },
-                    (error) => {
-                        toast.error("Something went wrong. Please try again");
-                        // console.log('FAILED...', error);
-                    }
-                );
-        } else {
-            console.error(
-                "One or more environment variables are undefined. Please check your environment configuration."
-            );
+        const templateParams = {
+            from_name: values.fullname,
+            subject: values.subject,
+            from_email: values.email,
+            message: values.message
         }
+
+        emailjs
+            .send(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "",
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "",
+                templateParams,
+                process.env.NEXT_PUBLIC_EMAILJS_KEY ?? ""
+            )
+            .then(
+                () => {
+                    toast.success(
+                        "Thank for contacting. We'll be in touch soon!"
+                    );
+                    // console.log('SUCCESS!');
+                },
+                (error) => {
+                    toast.error("Something went wrong. Please try again");
+                    console.log('FAILED...', error);
+                }
+            );
     }
 
     return (
