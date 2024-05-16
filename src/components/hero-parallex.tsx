@@ -10,15 +10,22 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { fadeUp } from "@/constants/variants";
+import { PortableText } from "@portabletext/react";
+import { urlFor } from "@/lib/sanity";
 
 export const HeroParallax = ({
     products,
+    text
 }: {
     products: {
         title: string;
         link: string;
         thumbnail: string;
     }[];
+    text: {
+        title: string
+        description: any
+    }
 }) => {
     const firstRow = products.slice(0, 5);
     const secondRow = products.slice(0, 5).reverse();
@@ -65,7 +72,7 @@ export const HeroParallax = ({
             ref={ref}
             className="h-[220vh] lg:h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
         >
-            <Header />
+            <Header text={text} />
             <motion.div
                 style={{
                     rotateX,
@@ -107,15 +114,23 @@ export const HeroParallax = ({
     );
 };
 
-export const Header = () => {
+export const Header = ({ text }: {
+    text: {
+        title: string
+        description: any
+    }
+}) => {
     return (
         <div className="max-w-7xl relative mx-auto px-4 w-full  left-0 top-0">
             <h1 className="text-2xl md:text-5xl font-bold text-zinc-100 dark:text-white">
-                The Experience <br /> that lead to this moment.
+                {text.title}
             </h1>
-            <p className="max-w-2xl text-sm md:text-base mt-8 text-zinc-100 dark:text-neutral-200">
+            {/* <p className="max-w-2xl text-sm md:text-base mt-8 text-zinc-100 dark:text-neutral-200">
                 These are some projects I worked on when I was a intern at TAD. After my intern period I got affored a full-time position as a Front-End Developer within the company.That is were I learned a lot of new stuff and some design basics. I also worked on many Wordpress projects which one of them is Sharpview.
-            </p>
+            </p> */}
+            <div className="text-zinc-100 mt-8 prose">
+                <PortableText value={text.description} />
+            </div>
         </div>
     );
 };
@@ -148,7 +163,7 @@ export const ProductCard = ({
                 target="_blank"
             >
                 <Image
-                    src={product.thumbnail}
+                    src={urlFor(product.thumbnail).url()}
                     height="1440"
                     width="1440"
                     className="object-cover object-left absolute h-full w-full inset-0"

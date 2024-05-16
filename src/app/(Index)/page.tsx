@@ -6,19 +6,19 @@ import ContactBlock from "@/blocs/contact-block";
 import { query, sanityClient } from "@/lib/sanity";
 
 export default async function Home() {
-  const { hero, about, experience, experienceProjects, project } = await sanityClient.fetch(query)
+  const { hero, about, experience, experienceProjects, projects } = await sanityClient.fetch(query)
 
   return (
     <main className="flex flex-col bg-primary-two-500">
 
       {/* Hero */}
       <div className="w-full" id="hero">
-        <HeroBlock />
+        <HeroBlock data={hero} />
       </div>
 
       {/* About */}
       <div className="w-full" id="about">
-        <AboutBlock />
+        <AboutBlock data={about} />
       </div>
 
       {/* Services */}
@@ -28,12 +28,12 @@ export default async function Home() {
 
       {/* Experience */}
       <div className="pb-16" id="experience">
-        <ExperienceBlock />
+        <ExperienceBlock experience={experienceProjects} experienceSection={experience} />
       </div>
 
       {/* Projects */}
       <div className="w-full py-16 bg-primary-two-600" id="projects">
-        <ProjectsBlock />
+        <ProjectsBlock projects={projects} />
       </div>
 
       {/* Marquees */}

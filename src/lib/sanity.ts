@@ -10,12 +10,12 @@ export const sanityClient = createClient({
 
 const imgBuilder = imageUrlBuilder(sanityClient)
 
-export const sanityImgBuilder = (source:any) => {
+export const urlFor = (source:any) => {
  return imgBuilder.image(source)
 }
 
 const queryHeroSection = `*[_type== "hero"] {badge, name}[0]`
-const queryAboutSection = `*[_type== "about"] {title, description}[0]`
+const queryAboutSection = `*[_type== "about"] {title, description, image}[0]`
 const queryExperienceSection = `*[_type== "experienceSection"] {title, description}[0]`
 const queryExperience = `*[_type== "experience"] {title, link, thumbnail}`
 const queryProjects = `*[_type== "project"] {name, introduction, description, url, thumbnail}`

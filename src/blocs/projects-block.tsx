@@ -10,31 +10,27 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/constants/variants";
+import Image from "next/image";
+import { urlFor } from "@/lib/sanity";
+import RichText from "@/components/rich-text";
 
-export default function ProjectsBlock() {
-    const projects = [
-        {
-            thumbnail: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-            name: "Priority",
-            url: "#",
-            introduction: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus ariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atque dignissimos.Molestias explicabo corporis voluptatem?"
-        },
-        {
-            thumbnail: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-            name: "Priority",
-            url: "#",
-            introduction: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolores, possimus ariatur animi temporibus nesciunt praesentium dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta, voluptates neque explicabo tempora nisi culpa eius atque dignissimos.Molestias explicabo corporis voluptatem?"
-        },
-    ]
+export type TPropject = {
+    name: string
+    introduction: any
+    url: string
+    description: any
+    thumbnail: any
+}
+
+export default function ProjectsBlock({ projects }: any) {
+
     return (
         <div className="container-screen">
             <Heading title="Projects">
                 These are some of my personal projects that I build myself&#46;
             </Heading>
             <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {projects.map((item, i) => (
+                {projects.map((item: TPropject, i: number) => (
                     <motion.div key={i}
                         variants={fadeUp}
                         initial="initial"
@@ -49,21 +45,19 @@ export default function ProjectsBlock() {
                             <DrawerContent className="min-h-dvh text-zinc-100 bg-primary-two-500 border-primary-two-500">
                                 <DrawerHeader className="text-left mt-4">
                                     <DrawerTitle>{item.name}</DrawerTitle>
-                                    <DrawerDescription>{item.introduction}</DrawerDescription>
+                                    <DrawerDescription>
+                                        <RichText value={item.introduction} />
+                                    </DrawerDescription>
                                 </DrawerHeader>
                                 <ScrollArea className="h-full">
                                     <div className="w-full px-4 mt-2 grid lg:grid-cols-3 gap-4 text-muted-foreground text-sm">
-                                        <img
-                                            alt=""
-                                            src={item.thumbnail}
-                                            className="h-56 lg:h-96 w-full object-cover rounded-lg lg:col-span-2"
-                                        />
+                                        <div className="relative h-56 lg:h-96 w-full lg:col-span-2">
+                                            <Image src={urlFor(item.thumbnail).url()} fill alt="img" className="object-cover rounded-lg" />
+                                        </div>
                                         <div className="flex flex-col gap-4">
-                                            <p>
-                                                {item.description}
-                                            </p>
+                                            <RichText value={item.description} />
                                             <Button asChild className="rounded-full w-full group" variant={"outline"}>
-                                                <Link href={item.url} className="w-fit">
+                                                <Link href={item.url} target="_blank" className="w-fit">
                                                     Visit <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 duration-150 ease-linear transition" />
                                                 </Link>
                                             </Button>

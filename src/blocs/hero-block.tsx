@@ -9,10 +9,18 @@ import { ArrowRight, Circle, Square, Triangle, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/constants/variants";
 
-export function HeroBlock() {
+type Props = {
+    data: {
+        badge: string
+        name: string[]
+    }
+}
+
+export function HeroBlock({ data }: Props) {
     // https://dribbble.com/shots/16712560-Website-UI
-    const words = [{ text: "Kartadiwirja" }, { text: "Josh" }]
     const images = ["/me-coding.jpeg", "<Code new />", "/code.jpeg"]
+    const words = data.name.map((item) => ({ text: item }))
+
     return (
         <div>
             <div className="container-screen text-white py-20 min-h-screen grid">
@@ -28,7 +36,7 @@ export function HeroBlock() {
                         <Square className="absolute left-2/3 top-2/3 text-accent-two z-0" />
                         <Triangle className="hidden lg:inline-block absolute bottom-0 text-zinc-300" />
                         <div className="flex items-center gap-2">
-                            <Badge className="w-fit animate-pulse flex items-center gap-2">Software Engineer <div className="h-2 w-2 rounded-full bg-foreground" /></Badge>
+                            <Badge className="w-fit animate-pulse flex items-center gap-2">{data.badge} <div className="h-2 w-2 rounded-full bg-foreground" /></Badge>
                             <Separator className="w-12" />
                         </div>
                         <TypewriterEffect words={words} className="h-12 z-20" />
