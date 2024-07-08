@@ -10,7 +10,7 @@ import { fadeUp } from "@/constants/variants";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity";
 import RichText from "@/components/rich-text";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 
 export type TPropject = {
     name: string
@@ -19,7 +19,7 @@ export type TPropject = {
     description: any
     thumbnail: any
     mockup: any
-    image: any
+    mockupType: "laptop" | "mobile"
 }
 
 export default function ProjectsBlock({ projects }: any) {
@@ -27,7 +27,7 @@ export default function ProjectsBlock({ projects }: any) {
     return (
         <div className="container-screen">
             <Heading title="Projects">
-                These are some of my personal projects that I build myself&#46;
+                A showcase of my web development projects, demonstrating my skills in creating innovative and user-friendly applications&#46;
             </Heading>
             {/* <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {projects.map((item: TPropject, i: number) => (
@@ -84,7 +84,6 @@ export default function ProjectsBlock({ projects }: any) {
             </div> */}
             <div className="grid gap-6 mt-10">
                 {projects.map((item: TPropject, i: number) => {
-                    console.log(item)
                     return <motion.div key={i}
                         variants={fadeUp}
                         initial="initial"
@@ -97,20 +96,18 @@ export default function ProjectsBlock({ projects }: any) {
                                 {/* Text Block */}
                                 <div className={cn("flex flex-col-reverse justify-between items-center gap-8", i === 0 || i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse")}>
                                     <div className="flex flex-col gap-4 flex-1">
-                                        <p className="font-medium text-lg">{item.name}</p>
-                                        <p className="text-sm">
-                                            <RichText value={item.description} />
-                                        </p>
+                                        <p className="font-medium text-xl">{item.name}</p>
+                                        <RichText className="!text-zinc-100/80 text-sm" value={item.description} />
                                         <Button variant={"outline"} className="lg:w-fit flex items-center" asChild>
-                                            <Link href={item.url}>
+                                            <Link href={item.url} target="_blank">
                                                 View <ExternalLink className="h-4 w-4 ml-2" />
                                             </Link>
                                         </Button>
                                     </div>
                                     {/* Device */}
                                     <div className="flex-1 flex w-full justify-center">
-                                        <div className="relative w-[300px] h-[150px] lg:w-[400px] lg:h-[200px] rotate-3 group-hover:rotate-0 hover-effect drop-shadow-[0_10px_8px_rgba(0,53,102,1)]">
-                                            <Image src={'/macbook-mockup.png'} fill alt="thumbnail" />
+                                        <div className={cn("relative w-[300px] h-[150px] lg:w-[400px] lg:h-[200px] group-hover:rotate-0 hover-effect drop-shadow-[0_14px_10px_rgba(0,53,102,.75)]", i === 0 || i % 2 === 0 ? "rotate-3" : "-rotate-3")}>
+                                            <Image src={urlFor(item.mockup).url()} fill alt="thumbnail" className="object-contain" />
                                         </div>
                                     </div>
                                 </div>
@@ -119,6 +116,6 @@ export default function ProjectsBlock({ projects }: any) {
                     </motion.div>
                 })}
             </div>
-        </div>
+        </div >
     )
 }

@@ -18,7 +18,7 @@ const queryHeroSection = `*[_type== "hero"] {badge, name}[0]`
 const queryAboutSection = `*[_type== "about"] {title, description, image}[0]`
 const queryExperienceSection = `*[_type== "experienceSection"] {title, description}[0]`
 const queryExperience = `*[_type== "experience"] {title, link, thumbnail}`
-const queryProjects = `*[_type== "project"] {name, introduction, description, url, thumbnail}`
+const queryProjects = `*[_type== "project"] {name, introduction, description, url, thumbnail, mockup, mockupType}`
 
 export const query = `{
   "hero": ${queryHeroSection},
