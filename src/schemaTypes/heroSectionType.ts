@@ -14,5 +14,9 @@ export const HeroSectionType = defineType({
             type:'array',
             of:[{type:"string"}]
         }),
+        defineField({
+            name:'profilePicture',
+            type: 'image'
+        }),
     ] 
 })
