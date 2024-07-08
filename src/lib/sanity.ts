@@ -14,7 +14,7 @@ export const urlFor = (source:any) => {
  return imgBuilder.image(source)
 }
 
-const queryHeroSection = `*[_type== "hero"] {badge, name}[0]`
+const queryHeroSection = `*[_type== "heroSection"] {badge, name, profilePicture}[0]`
 const queryAboutSection = `*[_type== "about"] {title, description, image}[0]`
 const queryExperienceSection = `*[_type== "experienceSection"] {title, description}[0]`
 const queryExperience = `*[_type== "experience"] {title, link, thumbnail}`

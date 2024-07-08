@@ -31,12 +31,12 @@ export default function AboutBlock({ data }: any) {
                 <div className="w-full mt-2 z-20 prose text-zinc-100 prose-strong:font-semibold prose-strong:text-zinc-100">
                     <PortableText value={data.description} />
                 </div>
-                <div className="relative flex w-full justify-center overflow-hidden h-[550px] hover:scale-105 duration-300 ease-in-out transform">
-                    <Image src={urlFor(data.image).url()} alt="img" fill className="h-full w-full rounded-lg border border-primary-two-600 object-cover mt-8 object-left lg:object-cover" />
-                    <div className="from-1% absolute inset-0 bg-gradient-to-t from-primary-two-600 to-25%" />
+                <div className="relative flex w-full justify-center h-[550px] overflow-hidden">
+                    <Image src={urlFor(data.image).url()} alt="img" fill className="h-full w-full rounded-lg border border-primary-two-600 object-cover mt-8 object-left lg:object-cover hover:scale-110 hover-effect" />
+                    <div className="from-1% absolute inset-0 bg-gradient-to-t from-primary-two-600 to-35%" />
                 </div>
                 <div className="flex justify-center mt-4">
-                    <Button asChild className="rounded-full text-zinc-100 bg-transparent" variant={"outline"}><Link href="/about">Read more</Link></Button>
+                    {/* <Button asChild className="rounded-full text-zinc-100 bg-transparent" variant={"outline"}><Link href="/about">Read more</Link></Button> */}
                 </div>
             </motion.div>
         </div>
