@@ -58,4 +58,8 @@
   .container-screen {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  .hover-effect {
+    @apply ease-in-out transform duration-300 transition-all;
+  }
 }

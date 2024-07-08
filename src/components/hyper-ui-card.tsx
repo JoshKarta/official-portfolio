@@ -13,7 +13,7 @@ export default function HyperUiCard({ className, item }: HyperUiCardTypes) {
     return (
         <article className={cn("flex-1 overflow-hidden rounded-lg transition duration-150 ease-linear hover:shadow-md hover:shadow-slate-100/50 hover:-translate-y-4", className)}>
             <div className="relative h-60 w-full">
-                <Image src={urlFor(item.thumbnail).url()} fill className="object-cover" alt={item.name} />
+                <Image src={urlFor(item.thumbnail).url()} fill className="object-contain" alt={item.name} />
             </div>
             <div className="bg-zinc-100 text-left p-4 sm:p-6 h-[100%]">
                 <h3 className="mt-0.5 text-lg font-semibold text-gray-900">{item.name}</h3>

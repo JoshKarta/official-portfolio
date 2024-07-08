@@ -10,6 +10,10 @@ export const ProjectType = defineType({
             type: 'image'
         }),
         defineField({
+            name:'mockup',
+            type: 'image'
+        }),
+        defineField({
             name:'name',
             type: 'string',
         }),
