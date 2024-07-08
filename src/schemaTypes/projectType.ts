@@ -14,6 +14,16 @@ export const ProjectType = defineType({
             type: 'image'
         }),
         defineField({
+            name: 'mockupType',
+            type: 'string',
+            options: {
+                list: [
+                  {title: 'Laptop', value: 'laptop'},
+                  {title: 'Mobile', value: 'mobile'}
+                ], // <-- predefined values
+                layout: 'radio' // <-- defaults to 'dropdown'
+              }        }),
+        defineField({
             name:'name',
             type: 'string',
         }),
