@@ -11,17 +11,17 @@ export default function Header() {
   const links = [
     {
       label: "Home",
-      url: "#hero",
+      url: "hero",
       icon: <Home className="h-4 w-4" />
     },
     {
       label: "About",
-      url: "#about",
+      url: "about",
       icon: <UserRound className="h-4 w-4" />
     },
-    { label: "Experience", url: "#experience", icon: <PenLine className="h-4 w-4" /> },
-    { label: "Projects", url: "#projects", icon: <FolderKanban className="h-4 w-4" /> },
-    { label: "Contact", url: "#contact", icon: <Mail className="h-4 w-4" /> },
+    { label: "Experience", url: "experience", icon: <PenLine className="h-4 w-4" /> },
+    { label: "Projects", url: "projects", icon: <FolderKanban className="h-4 w-4" /> },
+    { label: "Contact", url: "contact", icon: <Mail className="h-4 w-4" /> },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
