@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@vercel/analytics/react"
+import ReactQueryProvider from "@/providers/ReactQueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,9 +21,11 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" href="/favicon-fav.png" sizes="any" />
       <body className={inter.className}>
-        {children}
-        <Toaster richColors position="top-right" />
-        <Analytics />
+        <ReactQueryProvider>
+          {children}
+          <Toaster richColors position="top-right" />
+          <Analytics />
+        </ReactQueryProvider>
       </body>
     </html>
   );

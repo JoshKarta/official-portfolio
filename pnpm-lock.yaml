@@ -47,6 +47,9 @@ dependencies:
   '@tabler/icons-react':
     specifier: ^3.1.0
     version: 3.1.0(react@18.2.0)
+  '@tanstack/react-query':
+    specifier: ^5.51.1
+    version: 5.51.1(react@18.2.0)
   '@vercel/analytics':
     specifier: ^1.2.2
     version: 1.2.2(next@14.1.4)(react@18.2.0)
@@ -59,6 +62,9 @@ dependencies:
   framer-motion:
     specifier: ^11.0.24
     version: 11.0.24(react-dom@18.2.0)(react@18.2.0)
+  lenis:
+    specifier: ^1.1.6
+    version: 1.1.6(react-dom@18.2.0)(react@18.2.0)
   lucide-react:
     specifier: ^0.364.0
     version: 0.364.0(react@18.2.0)
@@ -1480,6 +1486,10 @@ packages:
       '@codemirror/state': 6.4.1
       style-mod: 4.1.2
       w3c-keyname: 2.2.8
+    dev: false
+
+  /@darkroom.engineering/tempus@0.0.46:
+    resolution: {integrity: sha512-s5vav3KMHYezvUCl4ee5epg0oimF6M8C9gAaKxFnFaTvX2q3ywFDryIv6XLd0mRFUt3S1uHDJqKaiEcs2ZVSvw==}
     dev: false
 
   /@dnd-kit/accessibility@3.1.0(react@18.2.0):
@@ -3566,6 +3576,19 @@ packages:
       postcss-selector-parser: 6.0.10
       tailwindcss: 3.4.3
     dev: true
+
+  /@tanstack/query-core@5.51.1:
+    resolution: {integrity: sha512-fJBMQMpo8/KSsWW5ratJR5+IFr7YNJ3K2kfP9l5XObYHsgfVy1w3FJUWU4FT2fj7+JMaEg33zOcNDBo0LMwHnw==}
+    dev: false
+
+  /@tanstack/react-query@5.51.1(react@18.2.0):
+    resolution: {integrity: sha512-s47HKFnQ4HOJAHoIiXcpna/roMMPZJPy6fJ6p4ZNVn8+/onlLBEDd1+xc8OnDuwgvecqkZD7Z2mnSRbcWefrKw==}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      '@tanstack/query-core': 5.51.1
+      react: 18.2.0
+    dev: false
 
   /@tanstack/react-virtual@3.0.0-beta.54(react@18.2.0):
     resolution: {integrity: sha512-D1mDMf4UPbrtHRZZriCly5bXTBMhylslm4dhcHqTtDJ6brQcgGmk8YD9JdWBGWfGSWPKoh2x1H3e7eh+hgPXtQ==}
@@ -6897,6 +6920,22 @@ packages:
     engines: {node: '>= 0.6.3'}
     dependencies:
       readable-stream: 2.3.8
+    dev: false
+
+  /lenis@1.1.6(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-MQE2Pz49inEsT/H6enEfYeMysH/Yl6s9Z91th1KAm3RxMDzN0YOEncZzR3o6uvJH44yCCUDnr8ILMvT8o689RA==}
+    peerDependencies:
+      react: '>=17.0.0'
+      react-dom: '>=17.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      '@darkroom.engineering/tempus': 0.0.46
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /leven@3.1.0:
