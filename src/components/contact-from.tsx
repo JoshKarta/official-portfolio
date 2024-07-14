@@ -52,7 +52,7 @@ export default function ContactForm() {
                 },
                 (error) => {
                     toast.error("Something went wrong. Please try again");
-                    console.log('FAILED...', error);
+                    // console.log('FAILED...', error);
                 }
             );
     }

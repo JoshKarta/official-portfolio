@@ -32,7 +32,7 @@ export default function Home() {
 
 
   if (status === "pending") {
-    return <div className="h-[100vh] grid place-content-center">
+    return <div className="h-[calc(100vh_-_64px)] grid place-content-center">
       <div className="w-full h-1/2">
         <Lottie animationData={loadingAnimation} />
       </div>
