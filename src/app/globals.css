@@ -63,3 +63,14 @@
     @apply transform transition-all duration-300 ease-in-out;
   }
 }
+
+div[role="dialog"] button svg path {
+  stroke: white;
+}
+
+/* div[role="tablist"] button {
+  [data-state="active"] {
+    background-color: #000814 !important;
+    color: rgb(244 244 245 / var(--tw-text-opacity));
+  }
+} */

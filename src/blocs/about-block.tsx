@@ -1,11 +1,27 @@
 "use client"
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { fadeUp } from "@/constants/variants";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
+import {
+    Sheet,
+    SheetContent,
+    SheetTrigger,
+} from "@/components/ui/sheet"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card"
+import { ScrollArea } from "@/components/ui/scroll-area";
+import BlurFade from "@/components/magicui/blur-fade";
+
 
 
 export default function AboutBlock({ data }: any) {
@@ -36,9 +52,97 @@ export default function AboutBlock({ data }: any) {
                     <div className="from-1% absolute inset-0 bg-gradient-to-t from-primary-two-600 to-35%" />
                 </div>
                 <div className="flex justify-center mt-4">
-                    {/* <Button asChild className="rounded-full text-zinc-100 bg-transparent" variant={"outline"}><Link href="/about">Read more</Link></Button> */}
+                    <AboutSheet />
                 </div>
             </motion.div>
         </div>
+    )
+}
+
+function AboutSheet() {
+    const images = Array.from({ length: 9 }, (_, i) => {
+        const isLandscape = i % 2 === 0;
+        const width = isLandscape ? 800 : 600;
+        const height = isLandscape ? 600 : 800;
+        return `https://picsum.photos/seed/${i + 1}/${width}/${height}`;
+    });
+
+    const tabs = [
+        {
+            key: 'Skills',
+            value: 'skills'
+        },
+        {
+            key: 'Journey',
+            value: 'journey'
+        },
+    ]
+    return (
+        <Sheet>
+            <SheetTrigger asChild>
+                {/* Button says "< Read more />" */}
+                <Button className="rounded-full text-zinc-100 bg-transparent " variant={"outline"}>&lt; Read More &#47;&gt;</Button>
+            </SheetTrigger>
+            <SheetContent className="bg-primary-two-600 border-primary-two-600 rounded-l-xl text-zinc-100 sm:max-w-4xl px-8">
+                <ScrollArea className="w-full h-full px-6">
+                    <div className="mt-4">
+                        <Tabs defaultValue={tabs[0].value} className="w-full">
+                            <TabsList className="grid w-fit grid-cols-2 bg-secondary-two rounded-lg">
+                                {tabs.map((item, i) => (
+                                    <TabsTrigger value={item.value} className="rounded-lg">{item.key}</TabsTrigger>
+                                ))}
+                            </TabsList>
+                            <TabsContent value="skills">
+                                <Card className="text-zinc-100 bg-transparent">
+                                    <CardHeader>
+                                        <CardTitle>
+                                            <TabHeading text="hello world" />
+                                        </CardTitle>
+                                        <CardDescription>
+                                            Make changes to your account here. Click save when you're done.
+                                        </CardDescription>
+                                    </CardHeader>
+                                    <CardContent className="space-y-2">
+                                        <div className="columns-2 gap-4 sm:columns-3">
+                                            {images.map((imageUrl, idx) => (
+                                                <BlurFade key={imageUrl} delay={0.25 + idx * 0.05} inView>
+                                                    <img
+                                                        className="mb-4 size-full rounded-lg object-contain"
+                                                        src={imageUrl}
+                                                        alt={`Random stock image ${idx + 1}`}
+                                                    />
+                                                </BlurFade>
+                                            ))}
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </TabsContent>
+                            <TabsContent value="journey">
+                                <Card>
+                                    <CardHeader>
+                                        <CardTitle>Password</CardTitle>
+                                        <CardDescription>
+                                            Change your password here. After saving, you'll be logged out.
+                                        </CardDescription>
+                                    </CardHeader>
+                                    <CardContent className="space-y-2">
+
+                                    </CardContent>
+                                    <CardFooter>
+                                        <Button>Save password</Button>
+                                    </CardFooter>
+                                </Card>
+                            </TabsContent>
+                        </Tabs>
+                    </div>
+                </ScrollArea>
+            </SheetContent>
+        </Sheet>
+    )
+}
+
+function TabHeading({ text }: { text: string }) {
+    return (
+        <p className="text-zinc-100 font-bold text-xl capitalize">{text}</p>
     )
 }
