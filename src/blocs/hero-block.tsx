@@ -21,20 +21,19 @@ type Props = {
 
 export function HeroBlock({ data }: Props) {
     // https://dribbble.com/shots/16712560-Website-UI
-    const images = ["/me-coding.jpeg", "<Code new />", "/code.jpeg"]
     const words = data.name.map((item) => ({ text: item }))
 
     return (
         <div>
             <div className="container-screen text-white py-20 min-h-screen grid">
-                <div className="grid md:grid-cols-2 ">
+                <div className="grid md:grid-cols-2">
                     <motion.div
                         variants={fadeUp}
                         initial="initial"
                         viewport={{ once: true }}
                         whileInView="animate"
                         transition={{ duration: .75, type: 'spring' }}
-                        className="w-full relative flex flex-col justify-center gap-8 order-1 md:order-0">
+                        className="w-full relative flex flex-col justify-center items-center md:items-start gap-8 order-1 md:order-0">
                         {/* Icons */}
                         <div>
                             <X className="absolute right-14 top-14 text-zinc-300" />
@@ -46,7 +45,7 @@ export function HeroBlock({ data }: Props) {
                             <Badge className="w-fit animate-pulse flex items-center gap-2">{data.badge} <div className="h-2 w-2 rounded-full bg-foreground" /></Badge>
                             <Separator className="w-12" />
                         </div>
-                        <TypewriterEffect words={words} className="h-12 z-20" />
+                        <TypewriterEffect words={words} className="h-12 z-20 text-center md:text-left" />
                         {/* <Button className="hidden md:flex w-fit rounded-full">Read More <ArrowRight className="h-4 w-4 ml-2" /></Button> */}
                     </motion.div>
                     <motion.div

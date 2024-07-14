@@ -106,7 +106,7 @@ export default function ProjectsBlock({ projects }: any) {
                                     </div>
                                     {/* Device */}
                                     <div className="flex-1 flex w-full justify-center">
-                                        <div className={cn("relative w-[300px] h-[150px] lg:w-[400px] lg:h-[200px] group-hover:rotate-0 hover-effect drop-shadow-[0_14px_10px_rgba(0,53,102,.75)]", i === 0 || i % 2 === 0 ? "rotate-3" : "-rotate-3")}>
+                                        <div className={cn("relative w-[250px] h-[150px] lg:w-[400px] lg:h-[200px] group-hover:rotate-0 hover-effect drop-shadow-[0_14px_10px_rgba(0,53,102,.75)]", i === 0 || i % 2 === 0 ? "rotate-3" : "-rotate-3")}>
                                             <Image src={urlFor(item.mockup).url()} fill alt="thumbnail" className="object-contain" />
                                         </div>
                                     </div>
