@@ -8,9 +8,11 @@ import { useEffect } from "react";
 import Lenis from 'lenis'
 import { useQuery } from "@tanstack/react-query";
 import { getData } from "@/actions/fetchSanity";
+import Lottie from "lottie-react";
+import loadingAnimation from '@/constants/lottie-loading.json'
 
 export default function Home() {
-  const { data, isFetched } = useQuery({
+  const { data, status } = useQuery({
     queryKey: [
       "data"
     ],
@@ -20,7 +22,6 @@ export default function Home() {
   useEffect(() => {
     const lenis = new Lenis()
     lenis.on('scroll', (e: any) => {
-      console.log(e)
     })
     function raf(time: any) {
       lenis.raf(time)
@@ -30,7 +31,15 @@ export default function Home() {
   }, [])
 
 
-  if (isFetched) return (
+  if (status === "pending") {
+    return <div className="h-[100vh] grid place-content-center">
+      <div className="w-full h-1/2">
+        <Lottie animationData={loadingAnimation} />
+      </div>
+    </div>
+  }
+
+  if (status === "success") return (
     <main className="flex flex-col bg-primary-two-500">
 
       {/* Hero */}

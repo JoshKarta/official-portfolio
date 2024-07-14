@@ -1,12 +1,11 @@
-import { query, sanityClient } from "@/lib/sanity"
+import { query, sanityClient } from "@/lib/sanity";
 
 export async function getData() {
-    try {
-          const data = await sanityClient.fetch(query)
+  try {
+    const data = await sanityClient.fetch(query);
 
-return data
-
-    } catch (error) {
-        return {error}
-    }
+    return data;
+  } catch (error) {
+    return error;
+  }
 }
