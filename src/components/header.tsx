@@ -66,7 +66,7 @@ export default function Header() {
               </svg> */}
               <div>
                 <p className="font-bold">Josh K<span className="text-accent-two">&#46;</span></p>
-                <Lottie animationData={underlineAnimation} loop={false} dur className="w-14" />
+                <Lottie animationData={underlineAnimation} loop={false} className="w-14" />
               </div>
             </Link>
           </div>
