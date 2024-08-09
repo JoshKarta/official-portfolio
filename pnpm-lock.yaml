@@ -53,6 +53,9 @@ dependencies:
   '@tanstack/react-query':
     specifier: ^5.51.1
     version: 5.51.1(react@18.2.0)
+  '@types/react-vertical-timeline-component':
+    specifier: ^3.3.6
+    version: 3.3.6
   '@vercel/analytics':
     specifier: ^1.2.2
     version: 1.2.2(next@14.1.4)(react@18.2.0)
@@ -101,6 +104,12 @@ dependencies:
   react-hook-form:
     specifier: ^7.51.2
     version: 7.51.2(react@18.2.0)
+  react-intersection-observer:
+    specifier: ^9.13.0
+    version: 9.13.0(react-dom@18.2.0)(react@18.2.0)
+  react-vertical-timeline-component:
+    specifier: ^3.6.0
+    version: 3.6.0(react@18.2.0)
   sanity:
     specifier: ^3.41.1
     version: 3.41.1(@types/node@20.12.3)(@types/react@18.2.74)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.11)
@@ -3940,6 +3949,12 @@ packages:
 
   /@types/react-is@18.3.0:
     resolution: {integrity: sha512-KZJpHUkAdzyKj/kUHJDc6N7KyidftICufJfOFpiG6haL/BDQNQt5i4n1XDUL/nDZAtGLHDSWRYpLzKTAKSvX6w==}
+    dependencies:
+      '@types/react': 18.2.74
+    dev: false
+
+  /@types/react-vertical-timeline-component@3.3.6:
+    resolution: {integrity: sha512-OUvyPXRjXvUD/SNLO0CW0GbIxVF32Ios5qHecMSfw6kxnK1cPULD9NV80EuqZ3WmS/s6BgbcwmN8k4ISb3akhQ==}
     dependencies:
       '@types/react': 18.2.74
     dev: false
@@ -8386,6 +8401,27 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
+  /react-intersection-observer@8.34.0(react@18.2.0):
+    resolution: {integrity: sha512-TYKh52Zc0Uptp5/b4N91XydfSGKubEhgZRtcg1rhTKABXijc4Sdr1uTp5lJ8TN27jwUsdXxjHXtHa0kPj704sw==}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0|| ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /react-intersection-observer@9.13.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-y0UvBfjDiXqC8h0EWccyaj4dVBWMxgEx0t5RGNzQsvkfvZwugnKwxpu70StY4ivzYuMajavwUDjH4LJyIki9Lw==}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -8482,6 +8518,17 @@ packages:
       invariant: 2.2.4
       react: 18.2.0
       tslib: 2.6.2
+    dev: false
+
+  /react-vertical-timeline-component@3.6.0(react@18.2.0):
+    resolution: {integrity: sha512-l9zulqjIGlRuaQeplGzV4r/tG2RYBpYt84Il8w4IxnJze2cDIGI04MKo3F7f1sHT0Sih1ohEFts8UV23AJS15Q==}
+    requiresBuild: true
+    dependencies:
+      classnames: 2.5.1
+      prop-types: 15.8.1
+      react-intersection-observer: 8.34.0(react@18.2.0)
+    transitivePeerDependencies:
+      - react
     dev: false
 
   /react@18.2.0:
