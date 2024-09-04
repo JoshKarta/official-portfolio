@@ -24,7 +24,7 @@ export function HeroBlock({ data }: Props) {
     const words = data.name.map((item) => ({ text: item }))
 
     return (
-        <div>
+        <div className="bg-gradient-to-b from-primary-two-500 to-primary-two-600">
             <div className="container-screen text-white py-20 min-h-screen grid">
                 <div className="grid md:grid-cols-2">
                     <motion.div
@@ -36,12 +36,12 @@ export function HeroBlock({ data }: Props) {
                         className="w-full relative flex flex-col justify-center items-center md:items-start gap-8 order-1 md:order-0">
                         {/* Icons */}
                         <div>
-                            <X className="absolute right-14 top-14 text-zinc-300" />
+                            <X className="absolute left-0 -bottom-10 md:right-14 md:top-14 text-zinc-300" />
                             <Square className="absolute left-2/3 top-2/3 text-accent-two z-0" />
                             <Triangle className="hidden lg:inline-block absolute bottom-0 text-zinc-300" />
                         </div>
                         {/* Text */}
-                        <div className="flex items-center gap-2">
+                        <div className="hidden md:flex items-center gap-2">
                             <Badge className="w-fit animate-pulse flex items-center gap-2">{data.badge} <div className="h-2 w-2 rounded-full bg-foreground" /></Badge>
                             <Separator className="w-12" />
                         </div>
