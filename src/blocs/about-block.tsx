@@ -51,11 +51,11 @@ export default function AboutBlock({ data }: any) {
                     <Image src={urlFor(data.image).url()} alt="img" fill className="h-full w-full rounded-lg border border-primary-two-600 object-cover mt-8 object-left lg:object-cover hover:scale-110 hover-effect" />
                     <div className="from-1% absolute inset-0 bg-gradient-to-t from-primary-two-600 to-35%" />
                 </div>
-                <div className="flex justify-center mt-6">
+                {/* <div className="flex justify-center mt-6">
                     <SkillsSheet />
-                </div>
+                </div> */}
 
-                <div className="mt-8">
+                <div className="mt-20">
                     <JourneyTimeline />
                 </div>
             </motion.div>
@@ -117,8 +117,8 @@ function JourneyTimeline() {
                     // icon={<WorkIcon />}
                     dateClassName="text-zinc-50"
                 >
-                    <h3 className="font-bold text-lg">Creative Director</h3>
-                    <h4 className="text-zinc-500">Miami, FL</h4>
+                    <h3 className="font-bold text-xl">NATIN</h3>
+                    <h4 className="text-zinc-500 text-sm">Student</h4>
                     <p>
                         Creative Direction, User Experience, Visual Design, Project Management, Team Leading
                     </p>
