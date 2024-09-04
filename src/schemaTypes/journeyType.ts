@@ -10,7 +10,7 @@ export const JourneyType = defineType({
       type: "string",
     }),
     defineField({
-      name: "description",
+      name: "role",
       type: "string",
     }),
     defineField({
@@ -18,8 +18,8 @@ export const JourneyType = defineType({
       type: "string",
     }),
     defineField({
-      title: "Extra text",
-      name: "extra_text",
+      title: "Description",
+      name: "description",
       type: "string",
     }),
   ],

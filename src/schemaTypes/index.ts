@@ -5,6 +5,7 @@ import { ExperienceType } from "./experienceType";
 import { HeroSectionType } from "./heroSectionType";
 import { JourneyType } from "./journeyType";
 import { ProjectType } from "./projectType";
+import { skillType } from "./skillType";
 
 export const schemaTypes = [
   eventType,
@@ -14,4 +15,5 @@ export const schemaTypes = [
   ExperienceType,
   ProjectType,
   JourneyType,
+  skillType,
 ];
