@@ -6,6 +6,10 @@ export const JourneyType = defineType({
   type: "document",
   fields: [
     defineField({
+      name: "id",
+      type: "integer",
+    }),
+    defineField({
       name: "title",
       type: "string",
     }),
