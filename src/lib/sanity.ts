@@ -19,7 +19,7 @@ const queryAboutSection = `*[_type== "about"] {title, description, image}[0]`;
 const queryExperienceSection = `*[_type== "experienceSection"] {title, description}[0]`;
 const queryExperience = `*[_type== "experience"] {title, link, thumbnail}`;
 const queryProjects = `*[_type== "project"] {name, introduction, description, url, thumbnail, mockup, mockupType}`;
-const queryJourney = `*[_type== "journey"] {title, date, role}`;
+const queryJourney = `*[_type== "journey"] {title, date, role, description} | order(id asc)`;
 const querySkills = `*[_type== "skill"] {skill}`;
 
 export const query = `{
