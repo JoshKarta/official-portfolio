@@ -7,7 +7,8 @@ export const JourneyType = defineType({
   fields: [
     defineField({
       name: "id",
-      type: "integer",
+      type: "number",
+      validation: (Rule) => Rule.integer(),
     }),
     defineField({
       name: "title",
