@@ -27,5 +27,10 @@ export const JourneyType = defineType({
       name: "description",
       type: "string",
     }),
+    defineField({
+      title: "SVG Icon",
+      name: "svgicon",
+      type: "string",
+    }),
   ],
 });
