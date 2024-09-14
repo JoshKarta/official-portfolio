@@ -49,7 +49,7 @@ export default function Home() {
 
       {/* About */}
       <div className="w-full" id="about">
-        <AboutBlock data={data.about} />
+        <AboutBlock data={data.about} journey={data.journey} skills={data.skills} />
       </div>
 
       {/* Services */}
