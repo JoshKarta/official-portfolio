@@ -90,8 +90,9 @@ export default function ProjectsBlock({ projects }: any) {
                         viewport={{ once: true }}
                         whileInView="animate"
                         transition={{ delay: .25 * i, duration: 0.75, type: "spring" }}
+                        className="p-2 border rounded-2xl backdrop-blur-md border-accent-two/70 bg-accent-two/10"
                     >
-                        <Card className="group hover:scale-105 hover-effect hover:shadow-lg hover:shadow-accent-two/75 bg-accent-two/50">
+                        <Card className="group hover-effect rounded-xl border-accent-two/70 hover:!border-accent-two bg-primary-two-500 hover:bg-gradient-to-b hover:from-secondary-two/70 hover:to-transparent">
                             <CardContent className="px-8 py-12 text-zinc-100">
                                 {/* Text Block */}
                                 <div className={cn("flex flex-col-reverse justify-between items-center gap-8", i === 0 || i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse")}>
@@ -106,7 +107,7 @@ export default function ProjectsBlock({ projects }: any) {
                                     </div>
                                     {/* Device */}
                                     <div className="flex-1 flex w-full justify-center">
-                                        <div className={cn("relative w-[250px] h-[150px] lg:w-[400px] lg:h-[200px] group-hover:rotate-0 hover-effect drop-shadow-[0_14px_10px_rgba(0,53,102,.75)]", i === 0 || i % 2 === 0 ? "rotate-3" : "-rotate-3")}>
+                                        <div className={cn("relative w-[250px] h-[150px] lg:w-[400px] lg:h-[200px] group-hover:rotate-0 hover-effect group-hover:drop-shadow-[0_14px_10px_rgba(0,53,102,.75)]", i === 0 || i % 2 === 0 ? "rotate-6" : "-rotate-6")}>
                                             <Image src={urlFor(item.mockup).url()} fill alt="thumbnail" className="object-contain" />
                                         </div>
                                     </div>
@@ -116,6 +117,6 @@ export default function ProjectsBlock({ projects }: any) {
                     </motion.div>
                 })}
             </div>
-        </div >
+        </div>
     )
 }
