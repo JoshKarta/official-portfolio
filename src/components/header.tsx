@@ -3,15 +3,25 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { cn, scrollIntoView } from "@/lib/utils";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import { FolderKanban, Home, Mail, PenLine, UserRound, X } from "lucide-react";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
 import Lottie from "lottie-react";
-import underlineAnimation from '@/constants/lottie-underline.json'
+import underlineAnimation from "@/constants/lottie-underline.json";
+import { iconVariants } from "@/constants/variants";
+import { IconBurger } from "@tabler/icons-react";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const isDesktop = useMediaQuery("(min-width: 768px)");
 
   // Determine when to toggle the state
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -26,19 +36,25 @@ export default function Header() {
     {
       label: "Home",
       url: "hero",
-      icon: <Home className="h-4 w-4" />
+      icon: <Home className="h-4 w-4" />,
     },
     {
       label: "About",
       url: "about",
-      icon: <UserRound className="h-4 w-4" />
+      icon: <UserRound className="h-4 w-4" />,
     },
-    { label: "Experience", url: "experience", icon: <PenLine className="h-4 w-4" /> },
-    { label: "Projects", url: "projects", icon: <FolderKanban className="h-4 w-4" /> },
+    {
+      label: "Experience",
+      url: "experience",
+      icon: <PenLine className="h-4 w-4" />,
+    },
+    {
+      label: "Projects",
+      url: "projects",
+      icon: <FolderKanban className="h-4 w-4" />,
+    },
     { label: "Contact", url: "contact", icon: <Mail className="h-4 w-4" /> },
   ];
-
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +63,7 @@ export default function Header() {
       setIsScrolled(scrollPosition > 0);
     };
 
-    handleScroll()
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -138,33 +154,155 @@ export default function Header() {
     //     </div>
     //   </div>
     // </header>
-    <header className="w-full h-16 z-[99] py-4 flex items-center sticky top-0">
+
+    <header className={cn("sticky top-0 z-[99] h-16 w-full")}>
       <motion.div
         initial={{ y: 0, width: "100%" }}
-        animate={{ y: isScrolled ? 10 : 0, width: isScrolled ? "60%" : "100%" }}
+        animate={{
+          y: isScrolled && isDesktop ? 10 : 0,
+          width: isScrolled && isDesktop ? "60%" : "100%",
+        }}
         transition={{
           duration: 0.3,
           ease: "easeInOut",
           type: "just",
         }}
+        className={cn(
+          "container-screen relative flex flex-col overflow-hidden rounded-b-lg py-2 backdrop-blur-md lg:flex-row lg:justify-between lg:rounded-full",
+          isScrolled && "bg-secondary-two/50",
+          isOpen && "bg-secondary-two/50",
+        )}
+      >
+        <div className="flex w-full items-center justify-between">
+          {/* Logo */}
+          <Link
+            className="flex-grow-0 -rotate-3 transform text-zinc-300 transition-transform duration-150 hover:scale-95"
+            href="/"
+          >
+            <div>
+              <p className="font-bold">
+                Josh K<span className="text-accent-two">&#46;</span>
+              </p>
+              <Lottie
+                animationData={underlineAnimation}
+                loop={false}
+                className="w-14"
+              />
+            </div>
+          </Link>
 
-        className="container-screen flex items-center justify-between">
-        <Link className="flex-grow-0 text-zinc-300 hover:scale-95 transition-transform transform duration-150 -rotate-3" href="/">
-          <div>
-            <p className="font-bold">Josh K<span className="text-accent-two">&#46;</span></p>
-            <Lottie animationData={underlineAnimation} loop={false} className="w-14" />
+          {/* Desktop links */}
+          <div className="hidden items-center gap-2 lg:flex">
+            {links.map((item) => (
+              <Button
+                key={item.url}
+                variant={"link"}
+                onClick={() => scrollIntoView(item.url)}
+                className="group"
+              >
+                <span className="hover-effect group-hover:-translate-y-1">
+                  {item.label}
+                </span>
+              </Button>
+            ))}
           </div>
-        </Link>
 
-        <div className="hidden lg:flex gap-2 items-center">
-          {links.map((item) => (
-            <Button variant={'link'}>{item.label}</Button>
-          ))}
+          {/* Mobile nav toggle */}
+          <Button
+            size="icon"
+            onClick={() => setIsOpen(!isOpen)}
+            className="bg-tranparent hover:!bg-transparent hover:!text-zinc-50 lg:hidden"
+          >
+            <div
+              style={{ position: "relative", width: "24px", height: "24px" }}
+            >
+              <AnimatePresence initial={false} mode="wait">
+                {isOpen ? (
+                  <motion.div
+                    key="x"
+                    variants={iconVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    transition={{ duration: 0.1 }}
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  >
+                    <X />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="burger"
+                    variants={iconVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    transition={{ duration: 0.1 }}
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  >
+                    <IconBurger />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </Button>
+
+          {/* CV Download button */}
+          <Button
+            className={cn(
+              "hover-effect hidden rounded-full hover:text-zinc-300 lg:inline-block",
+              isScrolled && "bg-secondary-two",
+            )}
+          >
+            Resume
+          </Button>
         </div>
 
-        {/* CV Download button */}
-        <Button className="hidden lg:inline-block rounded-full">Resume</Button>
+        {/* Mobile links */}
+        {isOpen && (
+          <div className="mt-2 flex flex-col">
+            {links.map((item, i) => (
+              <motion.div
+                key={item.url}
+                initial={{ y: -20 }}
+                animate={{ y: 0 }}
+                exit={{ y: -10 }}
+                transition={{
+                  duration: 0.3,
+                  ease: "easeInOut",
+                  delay: i * 0.1,
+                }}
+                viewport={{ once: true }}
+              >
+                <Button
+                  className="w-fit !px-2 !py-1 text-zinc-100"
+                  variant="link"
+                  onClick={() => {
+                    scrollIntoView(item.url), setIsOpen(!isOpen);
+                  }}
+                >
+                  {item.label}
+                </Button>
+              </motion.div>
+            ))}
+            {/* Mobile CV Download button */}
+            {/* <Button className="hover-effect rounded-full hover:text-zinc-300 lg:hidden">
+              Resume
+            </Button> */}
+          </div>
+        )}
       </motion.div>
-    </header >
+    </header>
   );
 }

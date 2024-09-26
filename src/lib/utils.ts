@@ -18,7 +18,7 @@ export const scrollIntoView = (id: string) => {
   }
 };
 
-export function downloadFile(path: string) {
+export function DownloadFile(path: string) {
   const [downloading, setDownloading] = useState(false);
 
   fetch(path)
