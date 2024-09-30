@@ -49,7 +49,7 @@ export default function AboutBlock({ data, journey, skills }: any) {
                     <PortableText value={data.description} />
                 </div>
                 <div className="relative flex w-full justify-center h-[550px] overflow-hidden">
-                    <Image src={urlFor(data.image).url()} alt="img" fill className="h-full w-full rounded-lg border border-primary-two-600 object-cover mt-8 object-left lg:object-cover hover:scale-110 hover-effect" />
+                    <Image src={urlFor(data.image).url()} alt="img" fill className="h-full w-full rounded-lg border border-primary-two-600 object-cover mt-8 lg:object-cover hover:scale-110 hover-effect" />
                     <div className="from-1% absolute inset-0 bg-gradient-to-t from-primary-two-600 to-35%" />
                 </div>
                 {/* <div className="flex justify-center mt-6">
