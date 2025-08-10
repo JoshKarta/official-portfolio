@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
-import Header from "@/components/header";
 import { Toaster } from "@/components/ui/sonner";
 import Footer from "@/components/footer";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import Header2 from "@/components/header-2";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" href="/favicon-fav.png" sizes="any" />
       <body className={inter.className}>
-        <Header />
+        <Header2 />
         {children}
         <Footer />
         <Toaster richColors position="top-right" />
