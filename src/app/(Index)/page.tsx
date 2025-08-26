@@ -1,3 +1,5 @@
+import Content from "./components/Content";
+
 export default function Page() {
-  return <div className="p-4">test</div>;
+  return <Content />;
 }

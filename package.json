@@ -37,6 +37,7 @@
     "lottie-react": "^2.4.0",
     "lucide-react": "^0.364.0",
     "mini-svg-data-uri": "^1.4.4",
+    "motion": "^12.23.12",
     "next": "14.1.4",
     "next-sanity": "^9.0.17",
     "next-themes": "^0.3.0",
