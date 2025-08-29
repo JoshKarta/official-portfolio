@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="icon" href="/favicon-fav.png" sizes="any" />
+      <link rel="icon" href="/logo/jk2-white.png" sizes="any" />
       <body className={inter.className}>
         <SidebarProvider>
           <AppSidebar />

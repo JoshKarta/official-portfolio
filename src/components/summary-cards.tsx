@@ -1,7 +1,7 @@
 import React from "react";
-import { Card, CardContent } from "./card";
-import { SpinningText } from "./spinning-text";
-import { GridBeams } from "../magicui/grid-beams";
+import { Card, CardContent } from "./ui/card";
+import { SpinningText } from "./ui/spinning-text";
+import { GridBeams } from "./magicui/grid-beams";
 import { AppWindow } from "lucide-react";
 import {
   IconCertificate2,
@@ -27,7 +27,7 @@ export default function SummaryCards() {
       icon: <IconDeviceDesktop className="h-4 w-4" />,
     },
     {
-      title: "Skills",
+      title: "Lorem Ipsum",
       value: "5",
       icon: <IconDeviceDesktop className="h-4 w-4" />,
     },
@@ -70,7 +70,7 @@ export default function SummaryCards() {
                   duration={25}
                   radius={10}
                   fontSize={0.7}
-                  className="absolute inset-0 font-medium leading-none text-white"
+                  className="absolute inset-0 font-medium leading-none text-zinc-300"
                 >
                   {`Software • Engineer • Software Engineer • `}
                 </SpinningText>
@@ -82,17 +82,16 @@ export default function SummaryCards() {
 
       {/* Summary cards */}
       <div className="flex flex-row flex-wrap gap-4">
-        {data.map((item) => (
-          <Card
-            className="hover-card flex-1 !border-neutral-300"
-            key={item.value}
-          >
+        {data.map((item, i) => (
+          <Card className="hover-card flex-1 !border-neutral-300" key={i}>
             <CardContent className="p-6">
               <div className="flex items-center space-x-2 text-zinc-500">
                 {item.icon}
                 <p className="text-sm">{item.title}</p>
               </div>
-              <h3 className="mt-2 text-xl font-bold">{item.value}</h3>
+              <h3 className="mt-2 text-xl font-bold text-secondary-two">
+                {item.value}
+              </h3>
             </CardContent>
           </Card>
         ))}
